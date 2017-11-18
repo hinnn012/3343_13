@@ -20,5 +20,11 @@ public class Card {
 	}
 
 	
+	public char getSuit() {
+		
+		return suit;
+		
+	}
+	
 }
 

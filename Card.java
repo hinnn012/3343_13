@@ -26,12 +26,6 @@ public class Card {
 		
 	}
 	
-	public char getSuit() {
-		
-		return suit;
-		
-	}
-	
 }
 =======
 >>>>>>> parent of dc558ef... Added Card class with constructor and get method. 

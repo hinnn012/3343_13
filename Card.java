@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package Big_Two;
 
 public class Card {
@@ -32,4 +33,6 @@ public class Card {
 	}
 	
 }
+=======
+>>>>>>> parent of dc558ef... Added Card class with constructor and get method. 
 

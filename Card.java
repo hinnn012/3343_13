@@ -18,7 +18,12 @@ public class Card {
 		return face;
 		
 	}
-
+	
+	public char getSuit() {
+		
+		return suit;
+		
+	}
 	
 	public char getSuit() {
 		

@@ -2,16 +2,16 @@ package Big_two;
 
 public enum Suit {
 
-	spades("♠"),
-	hearts("♥"),
-	clubs("♣"),
-	diamonds("♦");
+	spades("\\u2660"),
+	hearts("\\u2665"),
+	clubs("\\u2663"),
+	diamonds("\\u2666");
 	
-	/*		♠ (spades),
-			♥ (hearts),
-			♣ (clubs),
-			♦ (diamonds)
-	 
+	/*		\\u2660 (spades),
+			\\u2665(hearts),
+			\\u2663 (clubs),
+			\\u2666 (diamonds)
+	 		UTF-8 encoding
 	 */
 	
 	private String value;

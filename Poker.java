@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Poker {
-	private static Poker instance = new Poker();
+	private static Poker instance = new Poker(); //Singleton
 	ArrayList<Card> Poker;
+	
+	
 	private Poker() {
 		
 		Poker = new ArrayList(52);
@@ -20,7 +22,7 @@ public class Poker {
 	
 	public void Shuffle() {
 		
-		Collections.shuffle(Poker);
+		Collections.shuffle(Poker); //Shuffle the Poker set
 		
 	}
 	
@@ -39,9 +41,12 @@ public class Poker {
 			
 	}
 	
+	//Function for picking the first card 
 	public Card Pop() {
 		
-		return Poker.get(0);
+		Card requireCard = Poker.get(0);
+		Poker.remove(0);
+		return requiredCard;
 		
 	}
 }

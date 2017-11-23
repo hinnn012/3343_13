@@ -14,12 +14,18 @@ public class Player {
 		
 	}
 	
+	
+	//Add cards to players
+	
 	public void addHands(Card card) {
 		
 		cardList.add(card);
 		
 		
 	}
+	
+	//Display all player's cards
+	
 	public String showHands() {
 		
 		for(Card c : cardList) {
@@ -31,11 +37,14 @@ public class Player {
 		return null;
 	}
 	
+	
+	
 	public boolean Pass() {
 		
 		
 		return false;
 	}
+	
 	
 	public boolean Play(int x[]) {
 		

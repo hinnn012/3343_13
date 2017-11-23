@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 package Big_Two;
 
 public class Card {
 
-	private char face;	//e.g. ace to king
-	private char suit;	//e.g. diamond to spade
+	private String face;	//e.g. ace to king
+	private String suit;	//e.g. diamond to spade
 	
-	public Card(char cFace, char cSuit) {
+	public Card(String cFace, String cSuit) {
 		
 		cFace = face;
 		cSuit = suit;
@@ -14,19 +13,17 @@ public class Card {
 		
 	}
 	
-	public char getFace() {
+	public String getFace() {
 		
 		return face;
 		
 	}
 	
-	public char getSuit() {
+	public String getSuit() {
 		
 		return suit;
 		
 	}
 	
 }
-=======
->>>>>>> parent of dc558ef... Added Card class with constructor and get method. 
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Poker {
-	private static Poker instance = null;
+	private static Poker instance = new Poker();
 	ArrayList<Card> Poker;
 	private Poker() {
 		
@@ -26,19 +26,17 @@ public class Poker {
 	
 	
 	public void initalize() {
-		if(instance == null) {
 		
-			instance = new Poker();
-			for(Suit s : Suit.values()) {
+		
+		for(Suit s : Suit.values()) {
 				
-				for(Face f : Face.values()) {
+			for(Face f : Face.values()) {
 					
-					Poker.add(new Card(s.getValue(), f.getValue()));
-				}
+				Poker.add(new Card(s.getValue(), f.getValue()));
+				
 			}
 		}
-		
-		else System.out.println("Already initialized. ");
+			
 	}
 	
 	public Card Pop() {

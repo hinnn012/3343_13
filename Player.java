@@ -1,6 +1,8 @@
 package Big_two;
 import java.util.ArrayList;
 
+import javax.smartcardio.Card;
+
 public class Player {
 	
 	private ArrayList<Card> cardList ;
@@ -27,14 +29,14 @@ public class Player {
 	//Display all player's cards
 	
 	public String showHands() {
-		
-		for(Card c : cardList) {
+		String otuput = "";
+		for(int i = 1; i< cardList.size(); i++) {
 			
-			
+			output += i + ": " + cardList.get(i-1).getSuit() + cardList.get(i-1).getFace() + " ";
 			
 		}
 		
-		return null;
+		return output;
 	}
 	
 	
@@ -44,7 +46,6 @@ public class Player {
 		
 		return false;
 	}
-	
 	
 	public boolean Play(int x[]) {
 		

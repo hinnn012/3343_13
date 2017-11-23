@@ -7,8 +7,9 @@ public class Card {
 	
 	public Card(String cFace, String cSuit) {
 		
-		cFace = face;
-		cSuit = suit;
+		face = cFace;
+		suit = cSuit;
+		
 		
 		
 	}

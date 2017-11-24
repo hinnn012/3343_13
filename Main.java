@@ -21,9 +21,10 @@ public class Main {
 		
 		for(Player p : player) {
 			
+			for(int i = 0; i < 13; i++) {
 			Card card_to_be_assigned = poker.pop();
 			p.Draw(card_to_be_assigned);
-			
+			}
 		}
 		
 		while(end == false){

@@ -20,14 +20,14 @@ public class Poker {
 		
 	}
 	
-	public void Shuffle() {
+	public void shuffle() {
 		
 		Collections.shuffle(Poker); //Shuffle the Poker set
 		
 	}
 	
 	
-	public void initalize() {
+	public void initialize() {
 		
 		
 		for(Suit s : Suit.values()) {
@@ -42,7 +42,7 @@ public class Poker {
 	}
 	
 	//Function for picking the first card 
-	public Card Pop() {
+	public Card pop() {
 		
 		Card requiredCard = Poker.get(0);
 		Poker.remove(0);

@@ -44,12 +44,20 @@ public class Player {
 	public boolean Pass() {
 		
 		
-		return false;
+		return true;
 	}
 	
 	public boolean Play(int x[]) {
 		
+		//int num_of_card = x.length();
 		
+		ArrayList<Card> Card_to_be_played = new ArrayList();
+		
+		for(int c: x) {
+			
+			Card_to_be_played(cardList.get(c));
+			
+		}
 		
 		return false;
 	}

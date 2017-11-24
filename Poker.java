@@ -1,4 +1,4 @@
-package Big_two;
+//package Big_two;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +10,7 @@ public class Poker {
 	
 	private Poker() {
 		
-		Poker = new ArrayList(52);
+		Poker = new ArrayList<>(52);
 		
 	}
 	
@@ -44,7 +44,7 @@ public class Poker {
 	//Function for picking the first card 
 	public Card Pop() {
 		
-		Card requireCard = Poker.get(0);
+		Card requiredCard = Poker.get(0);
 		Poker.remove(0);
 		return requiredCard;
 		

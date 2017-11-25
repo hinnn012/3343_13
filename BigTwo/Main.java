@@ -26,13 +26,21 @@ public class Main {
 			for(int i = 0; i < 13; i++) {
 			Card card_to_be_assigned = poker.pop();
 			p.Draw(card_to_be_assigned);
+			
 			}
 		}
 		
-		while(end == false){
-			
-			break; // break infinite loop , will be removed in final
-			
+		System.out.println("Game start.");
+		
+		try {
+			while(end == false){
+				
+				break; // break infinite loop , will be removed in final
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}		
 		
 	}

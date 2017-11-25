@@ -15,6 +15,8 @@ public class Player {
 	
 	private ArrayList<Card> cardList ;
 	private String name;
+	private String ValidAction = null;
+	private String lastValidAction = null;
 	
 	public ArrayList<Card> getCardList() {
 		return cardList;
@@ -26,7 +28,7 @@ public class Player {
 	}
 
 
-	private String ValidAction = null;
+	
 	
 	public Player(String aName) {
 		
@@ -74,6 +76,12 @@ public class Player {
 		
 	}
 	
+	public String returnlastAction() {
+		
+		return lastValidAction;
+		
+		
+	}
 	
 	public boolean Play(int x[]) {
 		
@@ -93,11 +101,11 @@ public class Player {
 			try {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "one", name)) {
 					
-					String ValidAction = "";
+					lastValidAction = "";
 					for(Card c : cardList) {
 						
 						ValidAction += c.getSuit() + c.getFace() + " ";
-						
+						lastValidAction += c.getSuit() + c.getFace() + " ";
 					}
 					return true;
 				}
@@ -124,11 +132,11 @@ public class Player {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "Pair", name)) {
 					
 
-					String ValidAction = "";
+					lastValidAction = "";
 					for(Card c : cardList) {
 						
 						ValidAction += c.getSuit() + c.getFace() + " ";
-						
+						lastValidAction += c.getSuit() + c.getFace() + " ";
 					}
 					return true;
 				}
@@ -155,11 +163,11 @@ public class Player {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "ThreeOfKind", name)) {
 					
 
-					String ValidAction = "";
+					lastValidAction = "";
 					for(Card c : cardList) {
 						
 						ValidAction += c.getSuit() + c.getFace() + " ";
-						
+						lastValidAction += c.getSuit() + c.getFace() + " ";
 					}
 					return true;
 				}
@@ -186,11 +194,11 @@ public class Player {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "Straight", name)) {
 					
 
-					String ValidAction = "";
+					lastValidAction = "";
 					for(Card c : cardList) {
 						
 						ValidAction += c.getSuit() + c.getFace();
-						
+						lastValidAction += c.getSuit() + c.getFace() + " ";
 					}
 					return true;
 				}
@@ -217,11 +225,11 @@ public class Player {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "Flush", name)) {
 					
 
-					String ValidAction = "";
+					lastValidAction = "";
 					for(Card c : cardList) {
 						
 						ValidAction += c.getSuit() + c.getFace();
-						
+						lastValidAction += c.getSuit() + c.getFace() + " ";
 					}
 					return true;
 				}

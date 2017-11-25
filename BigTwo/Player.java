@@ -54,7 +54,7 @@ public class Player {
 		String output = "";
 		for(int i = 1; i< cardList.size(); i++) {
 			
-			output += i + ": " + cardList.get(i-1).getSuit() + cardList.get(i-1).getFace() + " ";
+			output += i + ": " + cardList.get(i-1).getFace()  + cardList.get(i-1).getSuit() + " ";
 			
 		}
 		
@@ -135,8 +135,8 @@ public class Player {
 					lastValidAction = "";
 					for(Card c : cardList) {
 						
-						ValidAction += c.getSuit() + c.getFace() + " ";
-						lastValidAction += c.getSuit() + c.getFace() + " ";
+						ValidAction +=  c.getFace()+ c.getSuit() + " ";
+						lastValidAction += c.getFace() + c.getSuit() + " ";
 					}
 					return true;
 				}

@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		String history = null;
+		//String history = null;
 		String input = null;
 		boolean end = false; 
 		boolean true_input = false;

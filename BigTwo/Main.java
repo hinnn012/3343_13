@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//String history = null;
-		String input = null;
+		//String input = null;
 		boolean end = false; 
 		boolean true_input = false;
 		int player_index = 0;
@@ -51,10 +51,10 @@ public class Main {
 		}
 		
 		System.out.println("Game start.");
-		
+		Scanner c = new Scanner(System.in);
 		try {
 			while(end == false){
-				input = null;
+				//input = null;
 				true_input = false;
 				System.out.println("Player " + ( player_index + 1 ) + " turn");
 				System.out.println("=============================================================================================");
@@ -72,9 +72,9 @@ public class Main {
 				while(!true_input) {
 					
 					System.out.print("Please enter your action (history/play/pass): ");
-					Scanner c = new Scanner(System.in);
-					input = c.next();
-					c.close();
+					
+					String input = c.next();
+					
 					
 					if(input.equals("history")){
 							
@@ -98,9 +98,9 @@ public class Main {
 					
 					else if(input.equals("play")) {
 						
-						String card_to_play = "";
+						
 						System.out.print("Please enter index of card : ");
-						card_to_play = c.next();
+						String card_to_play = c.next();
 						String[] card_index =  card_to_play.split(" ");
 						int [] card_inedx_int = new int[card_index.length];
 						
@@ -159,7 +159,9 @@ public class Main {
 				//clear console
 				System.out.print("\033[H\033[2J"); 
 			    System.out.flush(); 
+			   
 			}
+			 c.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

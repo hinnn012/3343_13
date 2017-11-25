@@ -28,6 +28,15 @@ public class Main {
 		poker.initialize();  //Initialize the poker
 		poker.shuffle();  	//Shuffle the card 
 		
+		for(int i = 0 ; i < 3; i++) {
+			
+			
+			Player p_i = new Player(Integer.toString(i+1));
+			player.add(p_i);
+			
+		}
+		
+		
 		for(Player p : player) {
 			
 			for(int i = 0; i < 13; i++) {
@@ -47,7 +56,7 @@ public class Main {
 			while(end == false){
 				
 				true_input = false;
-				System.out.println("Player " + ( player_index + 1 ) + "turn");
+				System.out.println("Player " + ( player_index + 1 ) + " turn");
 				System.out.println("=============================================================================================");
 				Player this_turn = player.get(player_index);
 				System.out.println("History: ");
@@ -58,7 +67,7 @@ public class Main {
 					
 				}
 				
-				System.out.printf("Your Hand: {	 %s } /n", this_turn.showHands());
+				System.out.printf("Your Hand: {	 %s } \n", this_turn.showHands());
 				
 				while(!true_input) {
 					
@@ -121,6 +130,8 @@ public class Main {
 						
 						
 					}
+					
+					input = "";
 					c.close();
 				}
 				

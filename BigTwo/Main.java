@@ -54,7 +54,7 @@ public class Main {
 		
 		try {
 			while(end == false){
-				
+				input = null;
 				true_input = false;
 				System.out.println("Player " + ( player_index + 1 ) + " turn");
 				System.out.println("=============================================================================================");
@@ -75,9 +75,9 @@ public class Main {
 					Scanner c = new Scanner(System.in);
 					input = c.next();
 					
-					if(input == "history") {
+					if(input.equals("history")){
 							
-							System.out.print("\033[H\033[2J");  
+							
 							System.out.flush(); 
 							for(String s : history) {
 							
@@ -87,17 +87,18 @@ public class Main {
 						
 					}
 					
-					else if(input == "play") {
+					else if(input.equals("play")) {
 						
 						String card_to_play = "";
-						card_to_play = c.next() + " ";
+						System.out.print("Please enter index of card : ");
+						card_to_play = c.next();
 						String[] card_index =  card_to_play.split(" ");
 						int [] card_inedx_int = new int[card_index.length];
 						
 
 						for(int i = 0; i < card_index.length; i++) {
 							
-							card_inedx_int[i] = Integer.parseInt(card_index[i]);
+							card_inedx_int[i] = Integer.parseInt(card_index[i]) - 1 ;
 							
 						}
 						
@@ -114,7 +115,7 @@ public class Main {
 						
 					}
 					
-					else if(input == "pass") {
+					else if(input.equals("pass")) {
 						
 						
 						if(this_turn.Pass()) {

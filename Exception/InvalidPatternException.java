@@ -8,7 +8,7 @@ public class InvalidPatternException extends Exception {
 		this.pattern = pattern;
 	}
 	
-	public String getSize(){
+	public String getPattern(){
 		return pattern;
 	}
 }

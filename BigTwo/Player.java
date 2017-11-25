@@ -101,9 +101,20 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
-					| InvalidRankException | CannotPassYourOwnLoopException e) {
-				// TODO Auto-generated catch block
+			} catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
 				e.printStackTrace();
 			}
 		}
@@ -121,9 +132,20 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
-					| InvalidRankException | CannotPassYourOwnLoopException e) {
-				// TODO Auto-generated catch block
+			} catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
 				e.printStackTrace();
 			}
 		}
@@ -141,9 +163,20 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
-					| InvalidRankException | CannotPassYourOwnLoopException e) {
-				// TODO Auto-generated catch block
+			} catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
 				e.printStackTrace();
 			}
 		}
@@ -161,9 +194,20 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
-					| InvalidRankException | CannotPassYourOwnLoopException e) {
-				// TODO Auto-generated catch block
+			} catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
 				e.printStackTrace();
 			}
 		}
@@ -181,9 +225,20 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
-					| InvalidRankException | CannotPassYourOwnLoopException e) {
-				// TODO Auto-generated catch block
+			} catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
 				e.printStackTrace();
 			}
 		}

@@ -2,10 +2,10 @@ package BigTwo;
 
 public enum Suit {
 
-	spades("\\u2660"),
-	hearts("\\u2665"),
-	clubs("\\u2663"),
-	diamonds("\\u2666");
+	spades("\u2660"),
+	hearts("\u2665"),
+	clubs("\u2663"),
+	diamonds("\u2666");
 	
 	/*		\\u2660 (spades),
 			\\u2665(hearts),

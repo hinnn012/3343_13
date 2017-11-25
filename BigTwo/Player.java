@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import BigTwo.Card;
 import BigTwo.RuleController;
+import Exception.CannotPassYourOwnLoopException;
+import Exception.InputCannotBeNullException;
 import Exception.InputMoreThanHandsException;
+import Exception.InputNotValidException;
 import Exception.InvalidPatternException;
 import Exception.InvalidRankException;
 
@@ -88,7 +91,7 @@ public class Player {
 		//check card 
 		if(cardList.size() == 1) {
 			try {
-				if(ruleController.valid(Card_to_be_played)) {
+				if(ruleController.valid(Card_to_be_played, cardList.size(), "one", name)) {
 					
 					String ValidAction = "";
 					for(Card c : cardList) {
@@ -98,19 +101,16 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InvalidPatternException e) {
-				e.printStackTrace();
-			} catch (InvalidRankException e) {
+			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
+					| InvalidRankException | CannotPassYourOwnLoopException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
-			
 		}
 		
 		else if(ruleController.Pair(Card_to_be_played)) {
-			try{
-				if(ruleController.valid(Card_to_be_played)) {
+			try {
+				if(ruleController.valid(Card_to_be_played, cardList.size(), "Pair", name)) {
 					
 
 					String ValidAction = "";
@@ -121,16 +121,16 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InvalidPatternException e) {
-				e.printStackTrace();
-			} catch (InvalidRankException e) {
+			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
+					| InvalidRankException | CannotPassYourOwnLoopException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
 		else if(ruleController.ThreeOfKind(Card_to_be_played)) {
-			try{
-				if(ruleController.valid(Card_to_be_played)) {
+			try {
+				if(ruleController.valid(Card_to_be_played, cardList.size(), "ThreeOfKind", name)) {
 					
 
 					String ValidAction = "";
@@ -141,18 +141,16 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InvalidPatternException e) {
-				e.printStackTrace();
-			} catch (InvalidRankException e) {
+			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
+					| InvalidRankException | CannotPassYourOwnLoopException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
 		}
 		
 		else if(ruleController.Straight(Card_to_be_played)) {
-			try{
-				if(ruleController.valid(Card_to_be_played)) {
+			try {
+				if(ruleController.valid(Card_to_be_played, cardList.size(), "Straight", name)) {
 					
 
 					String ValidAction = "";
@@ -163,16 +161,16 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InvalidPatternException e) {
-				e.printStackTrace();
-			} catch (InvalidRankException e) {
+			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
+					| InvalidRankException | CannotPassYourOwnLoopException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		
 		else if(ruleController.Flush(Card_to_be_played)) {
-			try{
-				if(ruleController.valid(Card_to_be_played)) {
+			try {
+				if(ruleController.valid(Card_to_be_played, cardList.size(), "Flush", name)) {
 					
 
 					String ValidAction = "";
@@ -183,9 +181,9 @@ public class Player {
 					}
 					return true;
 				}
-			} catch (InvalidPatternException e) {
-				e.printStackTrace();
-			} catch (InvalidRankException e) {
+			} catch (InputCannotBeNullException | InputNotValidException | InvalidPatternException
+					| InvalidRankException | CannotPassYourOwnLoopException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

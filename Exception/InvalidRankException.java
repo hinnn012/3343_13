@@ -2,14 +2,14 @@ package Exception;
 
 public class InvalidRankException extends Exception {
 
-	private int size;
+	private int rank;
 	
-	public InvalidRankException(int size){
-		this.size = size;
+	public InvalidRankException(int rank){
+		this.rank = rank;
 	}
 	
-	public int getSize(){
-		return size;
+	public int getRank(){
+		return rank;
 	}
 }
 /*

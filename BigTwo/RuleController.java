@@ -4,6 +4,9 @@ package BigTwo;
 
 import java.util.ArrayList;
 import BigTwo.Card;
+import Exception.CannotPassYourOwnLoopException;
+import Exception.InputCannotBeNullException;
+import Exception.InputNotValidException;
 import Exception.InvalidPatternException;
 import Exception.InvalidRankException;
 
@@ -19,6 +22,16 @@ public class RuleController {
 			
 	private Integer lastRank;
 	
+	private String lastPattern;
+	
+	public String getLastPattern() {
+		return lastPattern;
+	}
+
+	public void setLastPattern(String lastPattern) {
+		this.lastPattern = lastPattern;
+	}
+
 	public Integer faceToInt(String face){
 		Integer intFace = null;
 		switch(face){
@@ -42,29 +55,35 @@ public class RuleController {
 	
 	boolean valid = false;
 	
-	public boolean InvalidPattern(ArrayList<Card> card_to_be_played) throws InvalidPatternException{
-		if(card_to_be_played != lastPattern){
-			throw new InvalidPatternException(lastPattern);
+	public boolean valid(ArrayList<Card> card_to_be_played, int cardsInHand, String pattern, String name) throws InputCannotBeNullException, InputNotValidException, InvalidPatternException, InvalidRankException, CannotPassYourOwnLoopException{
+		if(card_to_be_played.isEmpty() || card_to_be_played == null){
+			throw new InputCannotBeNullException();
+		}else if (card_to_be_played.size() > cardsInHand){
+			throw new InputNotValidException(cardsInHand);
+		}else if(pattern != this.getLastPattern()){
+			throw new InvalidPatternException(pattern);
+		}else if (faceToInt(card_to_be_played.get(cardsInHand).getFace()) > lastRank){
+			throw new InvalidRankException(lastRank);
+		}else if (name == lastValidPlayer){
+			throw new CannotPassYourOwnLoopException(lastValidPlayer);
 		}
 		return true;
-	}
-	
-	public boolean valid(ArrayList<Card> card_to_be_played) throws InvalidPatternException, InvalidRankException{
-		if(card_to_be_played != lastPattern){
-			throw new InvalidPatternException(lastPattern);
-		}
-		else if (card_to_be_played != isHigherRank){
-			throw new InvalidRankException(isHigherRank);
-		}
-		return true;
+		/*
+		 * InputMoreThanHands
+		 * InputCannotBeNull
+		 * InputNotValid
+		 * InvalidPattern
+		 * InvalidRank
+		 * CannotPassYourOwnLoop
+		 */
 	} 
-	
 	
 	public boolean Pair(ArrayList<Card> arraylist){
 		for (int i=0;i < arraylist.size();i++){
 		if (arraylist.get(i).getFace()==arraylist.get(i+1).getFace())
 			valid = true;
 		}
+		setLastPattern("Pair");
 		return valid;
 
 		
@@ -75,6 +94,7 @@ public class RuleController {
 			if (arraylist.get(i).getFace()==arraylist.get(i+1).getFace()&&arraylist.get(i+2).getFace()==arraylist.get(i+1).getFace())
 				valid = true;
 			}
+		setLastPattern("ThreeOfKind");
 		return valid;
 
 			
@@ -94,6 +114,7 @@ public class RuleController {
 				break;
 			}else valid = true;
 		}
+		setLastPattern("Straight");
 		return valid;
 				
 			
@@ -106,6 +127,7 @@ public class RuleController {
 				break;
 			}else valid = true;
 		}
+		setLastPattern("Flush");
 		return valid;
 				
 			

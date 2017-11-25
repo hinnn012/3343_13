@@ -2,14 +2,14 @@ package Exception;
 
 public class CannotPassYourOwnLoopException extends Exception {
 
-	private int size;
+	private String lastValidPlayer;
 	
-	public CannotPassYourOwnLoopException(int size){
-		this.size = size;
+	public CannotPassYourOwnLoopException(String lastValidPlayer){
+		this.lastValidPlayer = lastValidPlayer;
 	}
 	
-	public int getSize(){
-		return size;
+	public String getLastValidPlayer(){
+		return lastValidPlayer;
 	}
 }
 /*

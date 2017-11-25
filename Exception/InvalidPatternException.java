@@ -2,14 +2,14 @@ package Exception;
 
 public class InvalidPatternException extends Exception {
 
-	private int size;
+	private String pattern;
 	
-	public InvalidPatternException(int size){
-		this.size = size;
+	public InvalidPatternException(String pattern){
+		this.pattern = pattern;
 	}
 	
-	public int getSize(){
-		return size;
+	public String getSize(){
+		return pattern;
 	}
 }
 /*

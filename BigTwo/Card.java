@@ -1,4 +1,4 @@
-//package Big_Two;
+package BigTwo;
 
 public class Card {
 
@@ -8,9 +8,7 @@ public class Card {
 	public Card(String cFace, String cSuit) {
 		
 		face = cFace;
-		suit = cSuit;
-		
-		
+		suit = cSuit;		
 		
 	}
 	

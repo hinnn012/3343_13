@@ -1,5 +1,7 @@
+package BigTwo;
+
 import java.util.ArrayList;
-import javax.smartcardio.Card;
+import BigTwo.Card;
 public class Main {
 	
 	

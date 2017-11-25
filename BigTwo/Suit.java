@@ -1,4 +1,4 @@
-//package Big_two;
+package BigTwo;
 
 public enum Suit {
 

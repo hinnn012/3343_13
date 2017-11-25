@@ -1,7 +1,7 @@
-//package Big_two;
+package BigTwo;
 import java.util.ArrayList;
 
-import javax.smartcardio.Card;
+import BigTwo.Card;
 
 public class Player {
 	
@@ -66,7 +66,7 @@ public class Player {
 			
 		}
 		
-		RuleController ruleController = ruleController.getInstance();
+		RuleController ruleController = RuleController.getInstance();
 		
 		//check card 
 		if(cardList.size() == 1) {
@@ -84,7 +84,7 @@ public class Player {
 			
 		}
 		
-		else if(ruleController.TwoPair(Card_to_be_played)) {
+		else if(ruleController.Pair(Card_to_be_played)) {
 			
 			if(ruleController.valid()) {
 				

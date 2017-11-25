@@ -74,17 +74,26 @@ public class Main {
 					System.out.print("Please enter your action (history/play/pass): ");
 					Scanner c = new Scanner(System.in);
 					input = c.next();
+					c.close();
 					
 					if(input.equals("history")){
 							
-							
-							System.out.flush(); 
-							for(String s : history) {
-							
-							System.out.println(s);
-							
-						}
 						
+						System.out.flush(); 
+						System.out.println("History:");
+						
+						if(!history.isEmpty()) {
+								
+								
+							for(String s : history) {
+						
+								System.out.println(s);
+								
+							}
+								
+						}
+							
+						else System.out.println("No history. ");
 					}
 					
 					else if(input.equals("play")) {
@@ -128,12 +137,12 @@ public class Main {
 					
 					else {
 						
-						
+						continue;
 						
 					}
 					
-					input = "";
-					c.close();
+					
+					
 				}
 				
 				

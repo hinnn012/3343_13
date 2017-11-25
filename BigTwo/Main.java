@@ -67,7 +67,7 @@ public class Main {
 					
 				}
 				
-				System.out.printf("Your Hand: {	 %s } \n", this_turn.showHands());
+				System.out.printf("Your Hand: { %s } \n", this_turn.showHands());
 				
 				while(!true_input) {
 					

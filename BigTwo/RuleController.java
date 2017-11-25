@@ -90,7 +90,7 @@ public class RuleController {
 	}
 			
 	public boolean ThreeOfKind(ArrayList<Card> arraylist){
-		for (int i=0;i < arraylist.size()-1;i++){
+		for (int i=0;i < arraylist.size()-2;i++){
 			if (arraylist.get(i).getFace()==arraylist.get(i+1).getFace()&&arraylist.get(i+2).getFace()==arraylist.get(i+1).getFace())
 				valid = true;
 			}

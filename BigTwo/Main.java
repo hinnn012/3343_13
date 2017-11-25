@@ -37,11 +37,17 @@ public class Main {
 			}
 		}
 		
+		System.out.println("Game start.");
 		
-		while(end == false){
-			
-			break; // break infinite loop , will be removed in final
-			
+		try {
+			while(end == false){
+				
+				break; // break infinite loop , will be removed in final
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}		
 		
 	}

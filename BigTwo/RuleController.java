@@ -4,6 +4,8 @@ package BigTwo;
 
 import java.util.ArrayList;
 import BigTwo.Card;
+import Exception.InvalidPatternException;
+import Exception.InvalidRankException;
 
 
 public class RuleController {
@@ -19,9 +21,21 @@ public class RuleController {
 	
 	Card card;
 	
-	public boolean valid(){
-		return false;
-		
+	public boolean InvalidPattern(ArrayList<Card> card_to_be_played) throws InvalidPatternException{
+		if(card_to_be_played != lastPattern){
+			throw new InvalidPatternException(lastPattern);
+		}
+		return true;
+	}
+	
+	public boolean valid(ArrayList<Card> card_to_be_played) throws InvalidPatternException, InvalidRankException{
+		if(card_to_be_played != lastPattern){
+			throw new InvalidPatternException(lastPattern);
+		}
+		else if (card_to_be_played != isHigherRank){
+			throw new InvalidRankException(isHigherRank);
+		}
+		return true;
 	} 
 	
 	

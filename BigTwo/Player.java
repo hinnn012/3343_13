@@ -52,7 +52,7 @@ public class Player {
 	
 	public String showHands() {
 		String output = "";
-		for(int i = 1; i< cardList.size(); i++) {
+		for(int i = 1; i< cardList.size()+1; i++) {
 			
 			output += i + ": " + cardList.get(i-1).getFace()  + cardList.get(i-1).getSuit() + " ";
 			

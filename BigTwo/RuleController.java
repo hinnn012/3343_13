@@ -27,7 +27,11 @@ public class RuleController {
 	public String getLastPattern() {
 		return lastPattern;
 	}
-
+	
+	public String getLastValidPlayer() {
+		return lastValidPlayer;
+	}
+	
 	public void setLastPattern(String lastPattern) {
 		this.lastPattern = lastPattern;
 	}
@@ -55,6 +59,40 @@ public class RuleController {
 	
 	boolean valid = false;
 	
+	
+		public boolean valid(ArrayList<Card> card_to_be_played, int cardsInHand, String name) throws InputCannotBeNullException, InputNotValidException, InvalidPatternException, InvalidRankException, CannotPassYourOwnLoopException{
+		
+		String pattern = checkPattern(card_to_be_played);
+		if(card_to_be_played.isEmpty() || card_to_be_played == null){
+			throw new InputCannotBeNullException();
+		}else if (card_to_be_played.size() > cardsInHand){
+			throw new InputNotValidException(cardsInHand);
+		}else if(!this.lastValidPlayer.equals("") && !pattern.equals(this.getLastPattern())){
+			throw new InvalidPatternException(pattern);
+		}else if(this.lastValidPlayer.equals("") &&	pattern.equals("")){
+			this.setLastPattern(pattern);
+			return true;	
+		}else if(this.lastValidPlayer.equals(name)){
+			this.setLastPattern(pattern);
+			return true;			
+		}else if (faceToInt(card_to_be_played.get(card_to_be_played.size()-1).getFace()) > lastRank && !this.lastValidPlayer.equals("")){
+			throw new InvalidRankException(lastRank);
+		}else if (name == lastValidPlayer){
+			throw new CannotPassYourOwnLoopException(lastValidPlayer);
+		}
+		
+		return true;
+		/*
+		 * InputMoreThanHands
+		 * InputCannotBeNull
+		 * InputNotValid
+		 * InvalidPattern
+		 * InvalidRank
+		 * CannotPassYourOwnLoop
+		 */
+	} 
+	
+	/*
 	public boolean valid(ArrayList<Card> card_to_be_played, int cardsInHand, String pattern, String name) throws InputCannotBeNullException, InputNotValidException, InvalidPatternException, InvalidRankException, CannotPassYourOwnLoopException{
 		if(card_to_be_played.isEmpty() || card_to_be_played == null){
 			throw new InputCannotBeNullException();
@@ -76,7 +114,8 @@ public class RuleController {
 		 * InvalidRank
 		 * CannotPassYourOwnLoop
 		 */
-	} 
+	//} 
+	
 	
 	public boolean Pair(ArrayList<Card> arraylist){
 		for (int i=0;i < arraylist.size()-1;i++){
@@ -140,5 +179,33 @@ public class RuleController {
 	public static RuleController getInstance() {
 		// TODO Auto-generated method stub
 		return instance;
+	}
+	
+	public String checkPattern(ArrayList<Card> arraylist) {
+		
+		if(arraylist.size() == 1) {
+			
+			return "one";
+		}
+		
+		else if(arraylist.size() == 2 && Pair(arraylist)) {
+			
+			return "Pair";
+		}
+		else if(arraylist.size() == 3 && ThreeOfKind(arraylist)) {
+			
+			return "ThreeOfKind";
+		}
+		else if(arraylist.size() == 5) {
+			//if(Straight(arraylist)) return "Straight";
+			//else
+			if(Flush(arraylist)) return "Flush";
+				
+		}
+		
+		
+		return "Invalid";
+		
+		
 	}
 }

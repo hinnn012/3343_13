@@ -3,6 +3,8 @@ package BigTwo;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 import BigTwo.Card;
 import Exception.CannotPassYourOwnLoopException;
 import Exception.InputCannotBeNullException;
@@ -140,6 +142,7 @@ public class RuleController {
 	}
 			
 	public boolean Straight(ArrayList<Card> arraylist){
+		Collections.sort(arraylist);
 		if(faceToInt(arraylist.get(0).getFace())==10){//not 10JQKA
 		for(int i = 0 ; i < arraylist.size() - 1; i++){
 			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){

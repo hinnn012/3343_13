@@ -92,5 +92,25 @@ public class testRules {
 		result = rulecontroller.Flush(myList);
 		assertEquals(true, result);
 	}
+	
+	@Test
+	public void testStraightFlush_1() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("6", "clubs");
+		Card card2 = new Card("7", "clubs");
+		Card card3 = new Card("8", "clubs");
+		Card card4 = new Card("9", "clubs");
+		Card card5 = new Card("10", "clubs");
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		RuleController rulecontroller = new RuleController();
+		result = rulecontroller.StraightFlush(myList);
+		assertEquals(true, result);
+	}
 
 }

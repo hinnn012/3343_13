@@ -39,19 +39,19 @@ public class RuleController {
 	public Integer faceToInt(String face){
 		Integer intFace = null;
 		switch(face){
-		case "A" :intFace= 1;
-		case "2" :intFace= 2;
-		case "3" :intFace= 3;
-		case "4" :intFace= 4;
-		case "5" :intFace= 5;
-		case "6" :intFace= 6;
-		case "7" :intFace= 7;
-		case "8" :intFace= 8;
-		case "9" :intFace= 9;
-		case "10":intFace= 10;
-		case "J" :intFace= 11;
-		case "Q" :intFace= 12;
-		case "K" :intFace= 13;
+		case "A" :intFace= 1;break;
+		case "2" :intFace= 2;break;
+		case "3" :intFace= 3;break;
+		case "4" :intFace= 4;break;
+		case "5" :intFace= 5;break;
+		case "6" :intFace= 6;break;
+		case "7" :intFace= 7;break;
+		case "8" :intFace= 8;break;
+		case "9" :intFace= 9;break;
+		case "10":intFace= 10;break;
+		case "J" :intFace= 11;break;
+		case "Q" :intFace= 12;break;
+		case "K" :intFace= 13;break;
 		}
 		return intFace;
 		
@@ -140,19 +140,18 @@ public class RuleController {
 	}
 			
 	public boolean Straight(ArrayList<Card> arraylist){
-		if(faceToInt(arraylist.get(0).getFace())!=10){//not 10JQKA
+		if(faceToInt(arraylist.get(0).getFace())==10){//not 10JQKA
 		for(int i = 0 ; i < arraylist.size() - 1; i++){
-			if(faceToInt(arraylist.get(i).getFace())==faceToInt(arraylist.get(i+1).getFace())-1){
+			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
 				valid = false;
 				break;
 			}else valid = true;
 		}
 		}else for(int i = 0 ; i < arraylist.size()-1 ; i++){//for 10JQKA
-			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
-				valid = true;
-				
-			}else {valid = false;
-					break;
+			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1){
+				valid = false;
+				break;				
+			}else {valid=true;
 			}
 		}
 		if (valid) setLastPattern("Straight");
@@ -199,8 +198,8 @@ public class RuleController {
 			return "ThreeOfKind";
 		}
 		else if(arraylist.size() == 5) {
-			//if(Straight(arraylist)) return "Straight";
-			//else
+			if(Straight(arraylist)) return "Straight";
+			else
 			if(Flush(arraylist)) return "Flush";
 				
 		}

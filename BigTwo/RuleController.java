@@ -83,7 +83,7 @@ public class RuleController {
 		if (arraylist.get(i).getFace()==arraylist.get(i+1).getFace())
 			valid = true;
 		}
-		setLastPattern("Pair");
+		if (valid) setLastPattern("Pair");
 		return valid;
 
 		
@@ -94,40 +94,40 @@ public class RuleController {
 			if (arraylist.get(i).getFace()==arraylist.get(i+1).getFace()&&arraylist.get(i+2).getFace()==arraylist.get(i+1).getFace())
 				valid = true;
 			}
-		setLastPattern("ThreeOfKind");
+		if (valid) setLastPattern("ThreeOfKind");
 		return valid;
 
 			
 	}
 			
 	public boolean Straight(ArrayList<Card> arraylist){
-		if(faceToInt(arraylist.get(0).getFace())!=10){
+		if(faceToInt(arraylist.get(0).getFace())!=10){//not 10JQKA
 		for(int i = 0 ; i < arraylist.size() ; i++){
 			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1){
 				valid = false;
 				break;
 			}else valid = true;
 		}
-		}else for(int i = 0 ; i < arraylist.size()-1 ; i++){
+		}else for(int i = 0 ; i < arraylist.size()-1 ; i++){//for 10JQKA
 			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
 				valid = false;
 				break;
 			}else valid = true;
 		}
-		setLastPattern("Straight");
+		if (valid) setLastPattern("Straight");
 		return valid;
 				
 			
 	}
 			
 	public boolean Flush(ArrayList<Card> arraylist){
-		for(int i = 0 ; i < arraylist.size() ; i++){
+		for(int i = 0 ; i < arraylist.size()-1 ; i++){
 			if(arraylist.get(i).getSuit()!=arraylist.get(i+1).getSuit()){
 				valid = false;
 				break;
 			}else valid = true;
 		}
-		setLastPattern("Flush");
+		if (valid) setLastPattern("Flush");
 		return valid;
 				
 			

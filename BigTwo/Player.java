@@ -88,15 +88,59 @@ public class Player {
 		//int num_of_card = x.length();
 		ArrayList<Card> Card_to_be_played = new ArrayList<Card>();
 		
+		for(int i = 0; i < x.length; i++) {
+			
+			Card_to_be_played.add(cardList.get(x[i]));
+			
+		}
+		
+		/*
 		for(int c: x) {
 			
 			Card_to_be_played.add(cardList.get(c));
 			
 		}
+		*/
 		
 		RuleController ruleController = RuleController.getInstance();
 		
+		
 		//check card 
+		try {
+			if(ruleController.valid(Card_to_be_played, cardList.size(), name)) {
+			
+				lastValidAction = "";
+				for(Card c : Card_to_be_played) {
+					
+					ValidAction += c.getSuit() + c.getFace() + " ";
+					lastValidAction += c.getSuit() + c.getFace() + " ";
+				}
+				return true;
+			
+			
+			}
+			}catch (InputCannotBeNullException e) {
+				System.out.println("Player should not play nothing");
+				e.printStackTrace();
+			}catch (InputNotValidException e) {
+				System.out.println("Player should input only the provide options, size of input : " + e.getSize() + "exceeds");
+				e.printStackTrace();
+			}catch (InvalidPatternException e) {
+				System.out.println("Player should must follow last pattern, last pattern : " + e.getPattern());
+				e.printStackTrace();
+			}catch (InvalidRankException e) {
+				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
+				e.printStackTrace();
+			}catch (CannotPassYourOwnLoopException e) {
+				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
+				e.printStackTrace();
+			}
+		
+		
+		
+		
+		
+		/*
 		if(cardList.size() == 1) {
 			try {
 				if(ruleController.valid(Card_to_be_played, cardList.size(), "one", name)) {
@@ -250,7 +294,7 @@ public class Player {
 				e.printStackTrace();
 			}
 		}
-		
+		*/
 		return false;
 	}
 	

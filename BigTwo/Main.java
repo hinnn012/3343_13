@@ -74,7 +74,7 @@ public class Main {
 					System.out.print("Please enter your action (history/play/pass): ");
 					
 					String input = c.next();
-					
+					c.nextLine();
 					
 					if(input.equals("history")){
 							
@@ -100,7 +100,7 @@ public class Main {
 						
 						
 						System.out.print("Please enter index of card : ");
-						String card_to_play = c.next();
+						String card_to_play = c.nextLine();
 						String[] card_index =  card_to_play.split(" ");
 						int [] card_inedx_int = new int[card_index.length];
 						

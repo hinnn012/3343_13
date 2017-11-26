@@ -132,7 +132,9 @@ public class RuleController {
 	}
 
 	public boolean StraightFlush(ArrayList<Card> arraylist){
-		return Flush(arraylist)&&Straight(arraylist);
+		valid = Flush(arraylist)&&Straight(arraylist);
+		if (valid) setLastPattern("StraightFlush");
+		return valid ;
 	}
 
 	public static RuleController getInstance() {

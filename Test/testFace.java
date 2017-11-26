@@ -3,7 +3,6 @@ package Test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import BigTwo.Face;
-import BigTwo.Card;
 
 public class testFace {
 

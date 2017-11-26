@@ -128,11 +128,12 @@ public class RuleController {
 			}else valid = true;
 		}
 		if (valid) setLastPattern("Flush");
-		return valid;
-				
-			
+		return valid;			
 	}
 
+	public boolean StraightFlush(ArrayList<Card> arraylist){
+		return Flush(arraylist)&&Straight(arraylist);
+	}
 
 	public static RuleController getInstance() {
 		// TODO Auto-generated method stub

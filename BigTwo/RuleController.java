@@ -16,13 +16,13 @@ public class RuleController {
 	private static RuleController instance = new RuleController();
 			
 	
-	private String lastValidPlayer;
+	private String lastValidPlayer = "";
 			
 	private Double lastWeight;
 			
-	private Integer lastRank;
+	private Integer lastRank = 0;
 	
-	private String lastPattern;
+	private String lastPattern = "";
 	
 	public String getLastPattern() {
 		return lastPattern;

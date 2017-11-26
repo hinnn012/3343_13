@@ -141,17 +141,19 @@ public class RuleController {
 			
 	public boolean Straight(ArrayList<Card> arraylist){
 		if(faceToInt(arraylist.get(0).getFace())!=10){//not 10JQKA
-		for(int i = 0 ; i < arraylist.size() ; i++){
-			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1){
+		for(int i = 0 ; i < arraylist.size() - 1; i++){
+			if(faceToInt(arraylist.get(i).getFace())==faceToInt(arraylist.get(i+1).getFace())-1){
 				valid = false;
 				break;
 			}else valid = true;
 		}
 		}else for(int i = 0 ; i < arraylist.size()-1 ; i++){//for 10JQKA
 			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
-				valid = false;
-				break;
-			}else valid = true;
+				valid = true;
+				
+			}else {valid = false;
+					break;
+			}
 		}
 		if (valid) setLastPattern("Straight");
 		return valid;

@@ -26,6 +26,8 @@ public class RuleController {
 	
 	private String lastPattern = "";
 	
+	private String lastCards = "";
+	
 	public String getLastPattern() {
 		return lastPattern;
 	}
@@ -40,6 +42,22 @@ public class RuleController {
 	
 	public void setLastRank(int rank) {
 		this.lastRank = rank;
+	}
+	
+	public String getLastPlayMsg() {
+		
+		return lastValidPlayer + " " + lastPattern + " a " + lastPattern + ".";
+		
+	}
+	
+	public void setLastCards(ArrayList<Card> card) {
+		
+		for(Card c : card) {
+			
+			this.lastCards += c.getSuit() + c.getFace() + " ";
+			
+		}
+		
 	}
 	
 	public void setLastWeight(int weight)
@@ -85,6 +103,7 @@ public class RuleController {
 		int weight = calWeight(pattern);
 		setLastRank(rank);
 		setLastWeight(weight);
+		setLastCards(card_to_be_played);
 		return true;	
 	}
 	else if(!this.lastValidPlayer.equals("") && !pattern.equals(this.getLastPattern())){
@@ -96,6 +115,7 @@ public class RuleController {
 		{
 		setLastRank(rank);
 		setLastWeight(weight);
+		setLastCards(card_to_be_played);
 		return true;	
 		}
 		else throw new InvalidRankException(rank);
@@ -105,6 +125,7 @@ public class RuleController {
 		int weight = calWeight(pattern);
 		setLastRank(rank);
 		setLastWeight(weight);
+		setLastCards(card_to_be_played);
 		return true;			
 	}
 	else return false;

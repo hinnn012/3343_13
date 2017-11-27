@@ -6,6 +6,7 @@ import java.util.Scanner;
 import BigTwo.Card;
 import BigTwo.Player;
 import BigTwo.Poker;
+import Exception.InputCannotBeNullException;
 import Exception.InputMoreThanHandsException;
 public class Main {
 	
@@ -75,6 +76,10 @@ public class Main {
 					
 					String input = c.next();
 					c.nextLine();
+					if(input == null || input.isEmpty()){
+						System.out.print("Input Cannot Be Null");
+						throw new InputCannotBeNullException();
+					}
 					
 					if(input.equals("history")){
 							

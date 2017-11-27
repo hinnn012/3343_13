@@ -65,9 +65,7 @@ public class RuleController {
 		public boolean valid(ArrayList<Card> card_to_be_played, int cardsInHand, String name) throws InputCannotBeNullException, InputNotValidException, InvalidPatternException, InvalidRankException, CannotPassYourOwnLoopException{
 		
 		String pattern = checkPattern(card_to_be_played);
-		if(card_to_be_played.isEmpty() || card_to_be_played == null){
-			throw new InputCannotBeNullException();
-		}else if (card_to_be_played.size() > cardsInHand){
+		if (card_to_be_played.size() > cardsInHand){
 			throw new InputNotValidException(cardsInHand);
 		}else if(!this.lastValidPlayer.equals("") && !pattern.equals(this.getLastPattern())){
 			throw new InvalidPatternException(pattern);

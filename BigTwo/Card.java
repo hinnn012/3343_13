@@ -28,19 +28,19 @@ public class Card implements Comparable<Card>{
 		
 		Integer intFace = 0;
 		switch(face){
-		case "A" :intFace= 12;break;
-		case "2" :intFace= 13;break;
-		case "3" :intFace= 1;break;
-		case "4" :intFace= 2;break;
-		case "5" :intFace= 3;break;
-		case "6" :intFace= 4;break;
-		case "7" :intFace= 5;break;
-		case "8" :intFace= 6;break;
-		case "9" :intFace= 7;break;
-		case "10":intFace= 8;break;
-		case "J" :intFace= 9;break;
-		case "Q" :intFace= 10;break;
-		case "K" :intFace= 11;break;
+		case "A" :intFace= 1;break;
+		case "2" :intFace= 2;break;
+		case "3" :intFace= 3;break;
+		case "4" :intFace= 4;break;
+		case "5" :intFace= 5;break;
+		case "6" :intFace= 6;break;
+		case "7" :intFace= 7;break;
+		case "8" :intFace= 8;break;
+		case "9" :intFace= 9;break;
+		case "10":intFace= 10;break;
+		case "J" :intFace= 11;break;
+		case "Q" :intFace= 12;break;
+		case "K" :intFace= 13;break;
 		}
 		return intFace;
 		

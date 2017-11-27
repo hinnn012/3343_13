@@ -15,9 +15,7 @@ public class Player {
 	
 	private ArrayList<Card> cardList ;
 	private String name;
-	private String ValidAction = null;
-	private String lastValidAction = null;
-	
+
 	public ArrayList<Card> getCardList() {
 		return cardList;
 	}
@@ -69,19 +67,7 @@ public class Player {
 		return true;
 	}
 	
-	public String returnAction() {
-		
-		return ValidAction;
-		
-		
-	}
-	
-	public String returnlastAction() {
-		
-		return lastValidAction;
-		
-		
-	}
+
 	
 	public boolean checkWin() {
 		

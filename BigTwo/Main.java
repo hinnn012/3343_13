@@ -151,10 +151,19 @@ public class Main {
 				}
 				
 				
+				for(Player p : player) {
+					
+					if(p.checkWin()) {
+						
+						System.out.printf("Player %s wins!", p.getName());
+						
+					}
+					
+				}
 				
 				player_index++;
 				
-				if(player_index == 3) {
+				if(player_index > 3) {
 					player_index = 0;
 				}
 				

@@ -324,6 +324,12 @@ public class Player {
 		*/
 		return false;
 	}
+
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
 	
 	
 }

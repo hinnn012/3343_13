@@ -34,7 +34,7 @@ public class Poker {
 				
 			for(Face f : Face.values()) {
 					
-				Poker.add(new Card(s.getValue(), f.getValue()));
+				Poker.add(new Card(f.getValue(), s.getValue()));
 				
 			}
 		}

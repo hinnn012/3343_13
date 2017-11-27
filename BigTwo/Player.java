@@ -91,9 +91,7 @@ public class Player {
 		for(int i = 0; i < x.length; i++) {
 			
 			Card_to_be_played.add(cardList.get(x[i]));
-			
 		}
-		
 		/*
 		for(int c: x) {
 			
@@ -104,7 +102,8 @@ public class Player {
 		
 		RuleController ruleController = RuleController.getInstance();
 		
-		
+		//System.out.println(Card_to_be_played.get(Card_to_be_played.size()-1).getFace());
+		//System.out.println(Card_to_be_played.get(Card_to_be_played.size()-1).getSuit());
 		//check card 
 		try {
 			if(ruleController.valid(Card_to_be_played, cardList.size(), name)) {

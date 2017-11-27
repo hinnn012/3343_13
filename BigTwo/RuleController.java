@@ -38,7 +38,7 @@ public class RuleController {
 		this.lastPattern = lastPattern;
 	}
 
-	public Integer suitToInt(String face){
+	public Integer faceToInt(String face){
 		Integer intFace = null;
 		switch(face){
 		case "A" :intFace= 1;break;
@@ -77,7 +77,7 @@ public class RuleController {
 		}else if(this.lastValidPlayer.equals(name)){
 			this.setLastPattern(pattern);
 			return true;			
-		}else if (suitToInt(card_to_be_played.get(card_to_be_played.size()-1).getSuit()) > lastRank && !this.lastValidPlayer.equals("")){
+		}else if (faceToInt(card_to_be_played.get(card_to_be_played.size()-1).getFace()) > lastRank && !this.lastValidPlayer.equals("")){
 			throw new InvalidRankException(lastRank);
 		}else if (name == lastValidPlayer){
 			throw new CannotPassYourOwnLoopException(lastValidPlayer);
@@ -143,15 +143,15 @@ public class RuleController {
 			
 	public boolean Straight(ArrayList<Card> arraylist){
 		Collections.sort(arraylist);
-		if(suitToInt(arraylist.get(0).getFace())==10){//not 10JQKA
+		if(faceToInt(arraylist.get(0).getFace())==10){//not 10JQKA
 		for(int i = 0 ; i < arraylist.size() - 1; i++){
-			if(suitToInt(arraylist.get(i).getFace())!=suitToInt(arraylist.get(i+1).getFace())-1&&suitToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
+			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1&&faceToInt(arraylist.get(arraylist.size()-1).getFace())!=1){
 				valid = false;
 				break;
 			}else valid = true;
 		}
 		}else for(int i = 0 ; i < arraylist.size()-1 ; i++){//for 10JQKA
-			if(suitToInt(arraylist.get(i).getFace())!=suitToInt(arraylist.get(i+1).getFace())-1){
+			if(faceToInt(arraylist.get(i).getFace())!=faceToInt(arraylist.get(i+1).getFace())-1){
 				valid = false;
 				break;				
 			}else {valid=true;

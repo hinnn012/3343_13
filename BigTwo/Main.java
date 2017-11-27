@@ -26,6 +26,7 @@ public class Main {
 		
 		System.out.println("Distributing Card...");
 		Poker poker = Poker.getInstance();
+		RuleController rulecontroller = RuleController.getInstance();
 		poker.initialize();  //Initialize the poker
 		poker.shuffle();  	//Shuffle the card 
 		
@@ -81,7 +82,7 @@ public class Main {
 						throw new InputCannotBeNullException();
 					}
 					
-					if(input.equals("history")){
+					else if(input.equals("history")){
 							
 						
 						System.out.flush(); 
@@ -119,13 +120,13 @@ public class Main {
 						if(this_turn.Play(card_inedx_int)) {
 							
 							
-							System.out.println("You have played " + this_turn.returnlastAction());
+							System.out.println(rulecontroller.getLastPlayMsg());
 							tmp_history = "Player " + (player_index + 1) + "played" + this_turn.returnlastAction() + "."; 
 							history.add(tmp_history);
 							true_input = true;
 						}
 						
-						else System.out.print("Your Input Pattern is not correct!");
+						
 						
 					}
 					

@@ -118,12 +118,6 @@ public class Player {
 				
 				if(ruleController.valid(Card_to_be_played, name)) {
 					
-					lastValidAction = "";
-					for(Card c : Card_to_be_played) {
-						
-						ValidAction += c.getSuit() + c.getFace() + " ";
-						lastValidAction += c.getSuit() + c.getFace() + " ";
-					}
 					return true;
 				
 				

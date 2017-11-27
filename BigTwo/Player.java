@@ -54,7 +54,7 @@ public class Player {
 		String output = "";
 		for(int i = 1; i< cardList.size()+1; i++) {
 			
-			output += i + ": " + cardList.get(i-1).getFace()  + cardList.get(i-1).getSuit() + " ";
+			output += i + ": " + cardList.get(i-1).getSuit()  + cardList.get(i-1).getFace() + " ";
 			
 		}
 		
@@ -91,7 +91,9 @@ public class Player {
 		for(int i = 0; i < x.length; i++) {
 			
 			Card_to_be_played.add(cardList.get(x[i]));
+			
 		}
+		
 		/*
 		for(int c: x) {
 			
@@ -102,19 +104,38 @@ public class Player {
 		
 		RuleController ruleController = RuleController.getInstance();
 		
-		//System.out.println(Card_to_be_played.get(Card_to_be_played.size()-1).getFace());
-		//System.out.println(Card_to_be_played.get(Card_to_be_played.size()-1).getSuit());
+		
 		//check card 
 		try {
-			if(ruleController.valid(Card_to_be_played, cardList.size(), name)) {
 			
-				lastValidAction = "";
-				for(Card c : Card_to_be_played) {
+			if(Card_to_be_played.size() > cardList.size()) {
+				
+				throw new InputNotValidException(cardList.size());
+				
+			}
+			
+			
+			else if(Card_to_be_played.isEmpty()) {
+				
+				
+				throw new InputCannotBeNullException();
+				
+			}
+			else {
+				
+				if(ruleController.valid(Card_to_be_played, name)) {
 					
-					ValidAction += c.getSuit() + c.getFace() + " ";
-					lastValidAction += c.getSuit() + c.getFace() + " ";
-				}
-				return true;
+					lastValidAction = "";
+					for(Card c : Card_to_be_played) {
+						
+						ValidAction += c.getSuit() + c.getFace() + " ";
+						lastValidAction += c.getSuit() + c.getFace() + " ";
+					}
+					return true;
+				
+				
+			}
+			
 			
 			
 			}

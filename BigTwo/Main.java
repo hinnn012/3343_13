@@ -154,7 +154,7 @@ public class Main {
 				
 				player_index++;
 				
-				if(player_index == 4) {
+				if(player_index == 3) {
 					player_index = 0;
 				}
 				

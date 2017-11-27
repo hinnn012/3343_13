@@ -50,10 +50,9 @@ public class Card implements Comparable<Card>{
 
 	@Override
 	public int compareTo(Card next) {
-		if(this.getIntFace() > next.getIntFace()) return 1;
-		else if(this.getIntFace() < next.getIntFace()) return 0;
+		
 		// TODO Auto-generated method stub
-		return -1;
+		return this.getIntFace() - next.getIntFace();
 	}
 }
 

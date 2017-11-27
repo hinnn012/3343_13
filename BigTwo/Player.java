@@ -83,6 +83,13 @@ public class Player {
 		
 	}
 	
+	public boolean checkWin() {
+		
+		if(cardList.isEmpty()) return true;
+		else return false;
+		
+	}
+	
 	public boolean Play(int x[]) {
 		
 		//int num_of_card = x.length();

@@ -68,7 +68,7 @@ public class testPlayer {
 		
 		player.setCardList(myList);
 		
-		int test[] = {0, 8, 10};
+		int test[] = {0, 1, 2, 3};
 		
 		boolean result = player.Play(test);
 		

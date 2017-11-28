@@ -407,4 +407,136 @@ class stubRuleController extends RuleController {
 		result = stubrulecontroller.checkPattern(myList);
 		assertEquals("Invalid", result);
 	}
+	
+	@Test
+	public void fourOfKind_1() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("2", "hearts");
+		Card card2 = new Card("2", "spades");
+		Card card3 = new Card("2", "diamonds");
+		Card card4 = new Card("2", "clubs");
+
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+
+		RuleController rulecontroller = new RuleController();
+		result = rulecontroller.FourOfKind(myList);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void fourOfKind_2() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("10", "hearts");
+		Card card2 = new Card("3", "spades");
+		Card card3 = new Card("4", "diamonds");
+		Card card4 = new Card("7", "clubs");
+
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+
+		RuleController rulecontroller = new RuleController();
+		result = rulecontroller.FourOfKind(myList);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void fullHouse_1() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("J", "hearts");
+		Card card2 = new Card("J", "spades");
+		Card card3 = new Card("J", "clubs");
+		Card card4 = new Card("3", "spades");
+		Card card5 = new Card("3", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		RuleController rulecontroller = new RuleController();
+		
+		result = rulecontroller.FullHouse(myList);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void fullHouse_2() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("J", "hearts");
+		Card card2 = new Card("10", "spades");
+		Card card3 = new Card("2", "clubs");
+		Card card4 = new Card("6", "spades");
+		Card card5 = new Card("3", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		RuleController rulecontroller = new RuleController();
+		
+		result = rulecontroller.FullHouse(myList);
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void fullHouse_3() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("10", "hearts");
+		Card card2 = new Card("J", "spades");
+		Card card3 = new Card("10", "clubs");
+		Card card4 = new Card("J", "diamonds");
+		Card card5 = new Card("J", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		RuleController rulecontroller = new RuleController();
+		
+		result = rulecontroller.FullHouse(myList);
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void fullHouse_4() {
+		
+		boolean result;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("10", "hearts");
+		Card card2 = new Card("J", "spades");
+		Card card3 = new Card("J", "clubs");
+		Card card4 = new Card("J", "diamonds");
+		Card card5 = new Card("10", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		RuleController rulecontroller = new RuleController();
+		
+		result = rulecontroller.FullHouse(myList);
+		assertEquals(true, result);
+	}
 }

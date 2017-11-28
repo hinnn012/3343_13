@@ -121,7 +121,7 @@ public class Main {
 							
 							
 							System.out.println(rulecontroller.getLastPlayMsg());
-							tmp_history = "Player " + (player_index + 1) + "played" + this_turn.returnlastAction() + "."; 
+							tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
 							history.add(tmp_history);
 							true_input = true;
 						}

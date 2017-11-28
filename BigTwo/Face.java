@@ -2,7 +2,7 @@ package BigTwo;
 
 public enum Face {
 	
-	A("1"), 
+	ACE("A"), 
 	TWO("2"), 
 	THREE("3"),
 	FOUR("4"), 

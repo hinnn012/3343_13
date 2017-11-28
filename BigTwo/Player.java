@@ -10,6 +10,7 @@ import Exception.InputMoreThanHandsException;
 import Exception.InputNotValidException;
 import Exception.InvalidPatternException;
 import Exception.InvalidRankException;
+import Exception.PatternNotRecognizeException;
 
 public class Player {
 	
@@ -63,8 +64,17 @@ public class Player {
 	
 	public boolean Pass() {
 		
+		boolean flag = false;
+		RuleController ruleController = RuleController.getInstance();
+		try {
+		flag = ruleController.passCheck(this.getName());
+		}
+		catch (CannotPassYourOwnLoopException e) {
+			System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
+			e.printStackTrace();
+		}
+		return flag;
 		
-		return true;
 	}
 	
 
@@ -118,12 +128,11 @@ public class Player {
 				
 				if(ruleController.valid(Card_to_be_played, name)) {
 					
-					for(Card c : Card_to_be_played) {
-						
+						for(Card c : Card_to_be_played) {
+						 						
 						cardList.remove(c);
-						
-					}
-					
+						 						
+						 }
 					return true;
 				
 				
@@ -143,9 +152,9 @@ public class Player {
 				e.printStackTrace();
 			}catch (InvalidRankException e) {
 				System.out.println("Player must play a card or pattern have higher rank, last rank : " + e.getRank());
-				e.printStackTrace();
-			}catch (CannotPassYourOwnLoopException e) {
-				System.out.println("Player must not pass a turn if last valid action player is himself, last player: " + e.getLastValidPlayer());
+				e.printStackTrace();			
+			}catch (PatternNotRecognizeException e) {
+				System.out.println("Pattern is not recognized! Please Enter a valid pattern");
 				e.printStackTrace();
 			}
 		

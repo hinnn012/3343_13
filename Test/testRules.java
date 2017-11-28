@@ -523,9 +523,9 @@ class stubRuleController extends RuleController {
 		boolean result;
 		ArrayList<Card> myList = new ArrayList<Card>();
 		Card card1 = new Card("10", "hearts");
-		Card card2 = new Card("J", "spades");
-		Card card3 = new Card("J", "clubs");
-		Card card4 = new Card("J", "diamonds");
+		Card card2 = new Card("7", "spades");
+		Card card3 = new Card("7", "clubs");
+		Card card4 = new Card("7", "diamonds");
 		Card card5 = new Card("10", "clubs");
 		
 		myList.add(card1);

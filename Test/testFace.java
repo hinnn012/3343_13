@@ -10,7 +10,7 @@ public class testFace {
 	public void testFace_1() throws Exception {
 	
 		Face face = null;
-		assertEquals("1",face.ACE.getValue());
+		assertEquals("A",face.ACE.getValue());
 		
 	}
 	

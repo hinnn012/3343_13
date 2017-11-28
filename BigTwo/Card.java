@@ -28,8 +28,8 @@ public class Card implements Comparable<Card>{
 		
 		Integer intFace = 0;
 		switch(face){
-		case "A" :intFace= 1;break;
-		case "2" :intFace= 2;break;
+		case "A" :intFace= 14;break;
+		case "2" :intFace= 15;break;
 		case "3" :intFace= 3;break;
 		case "4" :intFace= 4;break;
 		case "5" :intFace= 5;break;

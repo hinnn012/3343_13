@@ -118,6 +118,12 @@ public class Player {
 				
 				if(ruleController.valid(Card_to_be_played, name)) {
 					
+					for(Card c : Card_to_be_played) {
+						
+						cardList.remove(c);
+						
+					}
+					
 					return true;
 				
 				

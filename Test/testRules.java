@@ -292,6 +292,12 @@ class stubRuleController extends RuleController {
 					return "Straight";
 				}else if (myList.get(0).getFace().equals("J")) {
 					return "Flush";
+				}else if (myList.get(0).getFace().equals("2")) {
+					return "Four Of Kind";
+				}else if (myList.get(0).getFace().equals("3")) {
+					return "Full House";
+				}else if (myList.get(0).getFace().equals("4")) {
+					return "Straight Flush";
 				}
 			}
 			
@@ -406,6 +412,75 @@ class stubRuleController extends RuleController {
 		
 		result = stubrulecontroller.checkPattern(myList);
 		assertEquals("Invalid", result);
+	}
+	
+	@Test
+	public void testCheckPatter_7() {
+		
+		String result = null;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("2", "hearts");
+		Card card2 = new Card("2", "spades");
+		Card card3 = new Card("4", "clubs");
+		Card card4 = new Card("5", "spades");
+		Card card5 = new Card("7", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		stubRuleController stubrulecontroller = new stubRuleController();
+		
+		result = stubrulecontroller.checkPattern(myList);
+		assertEquals("Four Of Kind", result);
+	}
+	
+	@Test
+	public void testCheckPatter_8() {
+		
+		String result = null;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("3", "hearts");
+		Card card2 = new Card("2", "spades");
+		Card card3 = new Card("4", "clubs");
+		Card card4 = new Card("5", "spades");
+		Card card5 = new Card("7", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		stubRuleController stubrulecontroller = new stubRuleController();
+		
+		result = stubrulecontroller.checkPattern(myList);
+		assertEquals("Full House", result);
+	}
+	
+	@Test
+	public void testCheckPatter_9() {
+		
+		String result = null;
+		ArrayList<Card> myList = new ArrayList<Card>();
+		Card card1 = new Card("4", "hearts");
+		Card card2 = new Card("2", "spades");
+		Card card3 = new Card("4", "clubs");
+		Card card4 = new Card("5", "spades");
+		Card card5 = new Card("7", "clubs");
+		
+		myList.add(card1);
+		myList.add(card2);
+		myList.add(card3);
+		myList.add(card4);
+		myList.add(card5);
+		
+		stubRuleController stubrulecontroller = new stubRuleController();
+		
+		result = stubrulecontroller.checkPattern(myList);
+		assertEquals("Straight Flush", result);
 	}
 	
 	@Test

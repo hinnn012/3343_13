@@ -78,13 +78,12 @@ public class RuleController {
 			if (c.getFace().equals("A")||c.getFace().equals("2"))
 			{
 				temp.add(c);
-				cardArray.remove(c);
 			}
 			
 		}
-		for(Card c:cardArray) {			
+		for(Card c:cardArray) {
+			if (!c.getFace().equals("A")&&c.getFace().equals("2"))
 				temp.add(c);
-				cardArray.remove(c);			
 		}
 		return temp;
 		

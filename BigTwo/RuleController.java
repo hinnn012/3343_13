@@ -19,6 +19,8 @@ public class RuleController {
 	private Integer lastWeight = 0;
 
 	private Integer lastRank = 0;
+	
+	private Integer lastSuit = 0;
 
 	private String lastPattern = "";
 
@@ -26,6 +28,10 @@ public class RuleController {
 
 	public String getLastPattern() {
 		return lastPattern;
+	}
+	
+	public void setLastSuit(int suit) {
+		this.lastSuit = suit;
 	}
 
 	public String getLastValidPlayer() {
@@ -126,24 +132,28 @@ public class RuleController {
 		Collections.sort(card_to_be_played);
 		String pattern = checkPattern(card_to_be_played);
 		if (lastValidPlayer.equals("") && lastPattern.equals("") && lastRank == 0 && lastWeight == 0
-				&& !pattern.equals("Invalid")) {
+				&& !pattern.equals("Invalid") && lastSuit == 0) {
 			if (straightSmall(pattern, card_to_be_played)) {
 				setLastPattern(pattern);
 				int rank = calRank(card_to_be_played, true);
 				int weight = calWeight(pattern);
+				int suit = calSuit(card_to_be_played, true);
 				setLastRank(rank);
 				setLastWeight(weight);
 				setLastCards(card_to_be_played, true);
 				setLastValidPlayer(name);
+				setLastSuit(suit);
 				return true;
 			} else {
 				setLastPattern(pattern);
 				int rank = calRank(card_to_be_played, false);
 				int weight = calWeight(pattern);
+				int suit = calSuit(card_to_be_played,false);
 				setLastRank(rank);
 				setLastWeight(weight);
 				setLastCards(card_to_be_played, false);
 				setLastValidPlayer(name);
+				setLastSuit(suit);
 				return true;
 			}
 		} else if (!this.lastValidPlayer.equals("") && !pattern.equals(this.getLastPattern())) {
@@ -153,11 +163,13 @@ public class RuleController {
 			if (straightSmall(pattern, card_to_be_played)) {
 				int rank = calRank(card_to_be_played, true);
 				int weight = calWeight(pattern);
-				if (rank > lastRank && weight > lastWeight) {
+				int suit = calSuit(card_to_be_played, true);
+				if ((rank > lastRank && weight >lastWeight)||(rank == lastRank && weight == lastWeight && suit > lastSuit)) {
 					setLastRank(rank);
 					setLastWeight(weight);
 					setLastCards(card_to_be_played, true);
 					setLastValidPlayer(name);
+					setLastSuit(suit);
 					return true;
 				}
 
@@ -166,11 +178,13 @@ public class RuleController {
 			} else {
 				int rank = calRank(card_to_be_played, false);
 				int weight = calWeight(pattern);
-				if (rank > lastRank && weight > lastWeight) {
+				int suit = calSuit(card_to_be_played, false);
+				if ((rank > lastRank && weight > lastWeight)||(rank == lastRank && weight == lastWeight && suit > lastSuit)) {
 					setLastRank(rank);
 					setLastWeight(weight);
 					setLastCards(card_to_be_played, false);
 					setLastValidPlayer(name);
+					setLastSuit(suit);
 					return true;
 				}
 
@@ -182,17 +196,21 @@ public class RuleController {
 				this.setLastPattern(pattern);
 				int rank = calRank(card_to_be_played, true);
 				int weight = calWeight(pattern);
+				int suit = calSuit(card_to_be_played, true);
 				setLastRank(rank);
 				setLastWeight(weight);
 				setLastCards(card_to_be_played, true);
+				setLastSuit(suit);
 				return true;
 			} else {
 				this.setLastPattern(pattern);
 				int rank = calRank(card_to_be_played, false);
 				int weight = calWeight(pattern);
+				int suit = calSuit(card_to_be_played, false);
 				setLastRank(rank);
 				setLastWeight(weight);
 				setLastCards(card_to_be_played, false);
+				setLastSuit(suit);
 				return true;
 			}
 		} else
@@ -475,5 +493,42 @@ public class RuleController {
 			for (int i : keeper)
 				rank += i;
 		return rank;
+	}
+	
+	public int calSuit(ArrayList<Card> arraylist, boolean flag) {
+		if (!flag) {
+			switch (arraylist.get(arraylist.size()-1).getSuit())
+			{
+			case "\u2666": return 1;
+			case "\u2663": return 2;
+			case "\u2665": return 3;
+			case "\u2660": return 4;
+			default : return 0;
+			}
+						
+		}
+		else {
+			if (arraylist.get(3).getFace().equals("A")) {
+				switch (arraylist.get(2).getSuit())
+				{
+				case "\u2666": return 1;
+				case "\u2663": return 2;
+				case "\u2665": return 3;
+				case "\u2660": return 4;
+				default : return 0;
+				}
+			}
+			else {
+				switch (arraylist.get(3).getSuit())
+				{
+				case "\u2666": return 1;
+				case "\u2663": return 2;
+				case "\u2665": return 3;
+				case "\u2660": return 4;
+				default : return 0;
+				}
+				
+		}
+	}
 	}
 }

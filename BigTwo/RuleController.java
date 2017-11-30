@@ -82,9 +82,17 @@ public class RuleController {
 			return s;
 			
 		}
-		else {
+		
+		else if (cardArray.get(4).getFace().equals("2")) {
 			String s = cardArray.get(4).getSuit()+cardArray.get(4).getFace()+" ";
-			for (int i = 0; i<4;i++) {
+			for (int i=0;i<4;i++) {
+				s += cardArray.get(i).getSuit()+cardArray.get(i).getFace()+" ";
+			}
+			return s;
+		}
+		else {
+			String s = "";
+			for (int i = 0; i<5;i++) {
 				s += cardArray.get(i).getSuit()+cardArray.get(i).getFace()+" ";
 			}
 			return s;

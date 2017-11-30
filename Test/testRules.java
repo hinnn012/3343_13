@@ -1025,20 +1025,11 @@ public class testRules {
 		cards.add(new Card("7", "club"));
 		cards.add(new Card("8", "club"));
 
-		ArrayList<Card> expect = new ArrayList<>();
-		expect.add(new Card("4", "diamond"));
-		expect.add(new Card("5", "club"));
-		expect.add(new Card("6", "spade"));
-		expect.add(new Card("7", "club"));
-		expect.add(new Card("8", "club"));
-
 		RuleController ruleCtrl = RuleController.getInstance();
-		ArrayList<Card> result = ruleCtrl.ascenCard(cards);
-		assertEquals(expect.get(0).getFace(), result.get(0).getFace());
-		assertEquals(expect.get(1).getFace(), result.get(1).getFace());
-		assertEquals(expect.get(2).getFace(), result.get(2).getFace());
-		assertEquals(expect.get(3).getFace(), result.get(3).getFace());
-		assertEquals(expect.get(4).getFace(), result.get(4).getFace());
+		String result = ruleCtrl.ascenCard(cards);
+		System.out.print(result);
+		assertEquals("diamond4 club5 spade6 club7 club8 ", result);
+
 	}
 
 	@Test
@@ -1046,26 +1037,13 @@ public class testRules {
 		ArrayList<Card> cards = new ArrayList<>();
 		cards.add(new Card("4", "diamond"));
 		cards.add(new Card("5", "club"));
-		cards.add(new Card("A", "spade"));
-		cards.add(new Card("7", "club"));
 		cards.add(new Card("8", "club"));
-
-		ArrayList<Card> expect = new ArrayList<>();
-		expect.add(new Card("A", "diamond"));
-		expect.add(new Card("4", "club"));
-		expect.add(new Card("5", "spade"));
-		expect.add(new Card("7", "club"));
-		expect.add(new Card("8", "club"));
+		cards.add(new Card("A", "spade"));
+		cards.add(new Card("2", "spade"));
 
 		RuleController ruleCtrl = RuleController.getInstance();
-		ArrayList<Card> result = ruleCtrl.ascenCard(cards);
-		assertEquals(expect.get(0).getFace(), result.get(0).getFace());
-		assertEquals(expect.get(1).getFace(), result.get(1).getFace());
-		assertEquals(expect.get(2).getFace(), result.get(2).getFace());
-		System.out.print(expect.get(4).getFace());
-		System.out.print(result.get(4).getFace());
-		assertEquals(expect.get(3).getFace(), result.get(3).getFace());
-		assertEquals(expect.get(4).getFace(), result.get(4).getFace());
+		String result = ruleCtrl.ascenCard(cards);
+		assertEquals("spadeA spade2 diamond4 club5 club8 ", result);
 	}
 
 	@Test
@@ -1076,21 +1054,10 @@ public class testRules {
 		cards.add(new Card("5", "spade"));
 		cards.add(new Card("7", "club"));
 		cards.add(new Card("2", "club"));
-
-		ArrayList<Card> expect = new ArrayList<>();
-		expect.add(new Card("2", "diamond"));
-		expect.add(new Card("3", "club"));
-		expect.add(new Card("4", "spade"));
-		expect.add(new Card("5", "club"));
-		expect.add(new Card("7", "club"));
-
+		
 		RuleController ruleCtrl = RuleController.getInstance();
-		ArrayList<Card> result = ruleCtrl.ascenCard(cards);
-		assertEquals(expect.get(0).getFace(), result.get(0).getFace());
-		assertEquals(expect.get(1).getFace(), result.get(1).getFace());
-		assertEquals(expect.get(2).getFace(), result.get(2).getFace());
-		assertEquals(expect.get(3).getFace(), result.get(3).getFace());
-		assertEquals(expect.get(4).getFace(), result.get(4).getFace());
+		String result = ruleCtrl.ascenCard(cards);
+		assertEquals("club2 diamond3 club4 spade5 club7 ", result);
 	}
 
 	@Test

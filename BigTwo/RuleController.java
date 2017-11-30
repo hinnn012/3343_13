@@ -58,11 +58,8 @@ public class RuleController {
 
 	public void setLastCards(ArrayList<Card> card, boolean flag) {
 		if (flag) {
-			ArrayList<Card> mod = new ArrayList<Card>();
-			mod = ascenCard(card);
-			for (Card c : mod) {
-				this.lastCards += c.getSuit() + c.getFace() + " ";
-			}
+			String s = ascenCard(card);
+			this.lastCards = s;
 		} else
 			for (Card c : card) {
 
@@ -76,20 +73,22 @@ public class RuleController {
 		this.lastWeight = weight;
 	}
 
-	public ArrayList<Card> ascenCard(ArrayList<Card> cardArray) {
-		ArrayList<Card> temp = new ArrayList<>();
-		for (Card c : cardArray) {
-			if (c.getFace().equals("A") || c.getFace().equals("2")) {
-				temp.add(c);
+	public String ascenCard(ArrayList<Card> cardArray) {
+		if (cardArray.get(3).getFace().equals("A")) {
+			String s = cardArray.get(3).getSuit()+cardArray.get(3).getFace()+" "+cardArray.get(4).getSuit()+cardArray.get(4).getFace()+" ";
+			for (int i=0;i<3;i++) {
+				s += cardArray.get(i).getSuit()+cardArray.get(i).getFace()+" ";
 			}
-
+			return s;
+			
 		}
-		for (Card c : cardArray) {
-
-				temp.add(c);
+		else {
+			String s = cardArray.get(4).getSuit()+cardArray.get(4).getFace()+" ";
+			for (int i = 0; i<4;i++) {
+				s += cardArray.get(i).getSuit()+cardArray.get(i).getFace()+" ";
+			}
+			return s;
 		}
-		return temp;
-
 	}
 
 	/*

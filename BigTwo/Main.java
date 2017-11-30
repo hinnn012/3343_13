@@ -1,6 +1,8 @@
 package BigTwo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import BigTwo.Card;
@@ -8,6 +10,7 @@ import BigTwo.Player;
 import BigTwo.Poker;
 import Exception.InputCannotBeNullException;
 import Exception.InputMoreThanHandsException;
+import Exception.InputNotActionException;
 public class Main {
 	
 	
@@ -22,6 +25,7 @@ public class Main {
 		History history = null;
 		//ArrayList<String> history = new ArrayList<String>();
 		String tmp_history;
+		List<String> actions = Arrays.asList(new String[] {"history", "play", "pass"});
 		System.out.println("Initializing...");
 		
 		
@@ -87,7 +91,16 @@ public class Main {
 						System.out.print("Input Cannot Be Null");
 						throw new InputCannotBeNullException();
 					}
-					
+					if(actions.contains(input)){
+						System.out.println("Input does not match an action");
+						throw new InputNotActionException(input);
+					}
+					/*
+					if(!input.equals("history") && !input.equals("play") && !input.equals("pass")){
+						System.out.println("Input does not match an action");
+						throw new InputNotActionException(input);
+					}
+					*/
 					else if(input.equals("history")){
 						System.out.flush(); 
 						history.printHistory();

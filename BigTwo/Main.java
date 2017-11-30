@@ -19,7 +19,8 @@ public class Main {
 		boolean true_input = false;
 		int player_index = 0;
 		ArrayList<Player> player = new ArrayList<Player>();
-		ArrayList<String> history = new ArrayList<String>();
+		History history = null;
+		//ArrayList<String> history = new ArrayList<String>();
 		String tmp_history;
 		System.out.println("Initializing...");
 		
@@ -30,6 +31,8 @@ public class Main {
 		poker.initialize();  //Initialize the poker
 		poker.shuffle();  	//Shuffle the card 
 		
+		
+		//player.newPlayer() - not duplicated..
 		for(int i = 0 ; i < 3; i++) {
 			
 			
@@ -38,7 +41,7 @@ public class Main {
 			
 		}
 		
-		
+		// player.initialize(poker)?
 		for(Player p : player) {
 			
 			for(int i = 0; i < 13; i++) {
@@ -61,14 +64,17 @@ public class Main {
 				System.out.println("Player " + ( player_index + 1 ) + " turn");
 				System.out.println("=============================================================================================");
 				Player this_turn = player.get(player_index);
-				System.out.println("History: ");
+				//System.out.println("History: ");
 				
+				//printHistory()
+				history.printHistory();
+				/*
 				for(String s : history) {
 					
 					System.out.println(s);
 					
 				}
-				
+				*/
 				System.out.printf("Your Hand: { %s } \n", this_turn.showHands());
 				
 				while(!true_input) {
@@ -83,23 +89,8 @@ public class Main {
 					}
 					
 					else if(input.equals("history")){
-							
-						
 						System.out.flush(); 
-						System.out.println("History:");
-						
-						if(!history.isEmpty()) {
-								
-								
-							for(String s : history) {
-						
-								System.out.println(s);
-								
-							}
-								
-						}
-							
-						else System.out.println("No history. ");
+						history.printHistory();
 					}
 					
 					else if(input.equals("play")) {
@@ -122,7 +113,7 @@ public class Main {
 							
 							System.out.println(rulecontroller.getLastPlayMsg());
 							tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
-							history.add(tmp_history);
+							history.add(tmp_history);//temporary field
 							true_input = true;
 						}
 						

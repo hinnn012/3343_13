@@ -125,96 +125,88 @@ public class RuleController {
 			return false;
 	}
 
+	public boolean FirstTurnOfGame(String pattern){
+			if (lastValidPlayer.equals("") && lastPattern.equals("") && lastRank == 0 && lastWeight == 0
+				&& !pattern.equals("Invalid") && lastSuit == 0)return true;
+			else return false;
+	}
+
+	public boolean SuccessorPlay(String name,String pattern, int rank, int weight, int suit){
+	if ((!this.lastValidPlayer.equals(name) && !this.lastValidPlayer.equals("") && !pattern.equals("Invalid") && lastWeight < 4
+				&& pattern.equals(this.lastPattern))||(!this.lastValidPlayer.equals(name) && !this.lastValidPlayer.equals("") 
+				&& !pattern.equals("Invalid"))&& lastRank >= 4 && ((weight > lastWeight)||(weight == lastWeight && rank > lastRank)
+				||(rank == lastRank && weight == lastWeight && suit > lastSuit)))return true;
+	else return false;			
+
+	}
+
+	public boolean PlayYourOwnTurn(String name,String pattern)
+	{
+	if(lastValidPlayer.equals(name) && !pattern.equals("") && !pattern.equals("Invalid"))return true;
+	else return false;
+	}
+
 	public boolean valid(ArrayList<Card> card_to_be_played, String name)
 			throws InputNotValidException, InvalidPatternException, InvalidRankException, PatternNotRecognizeException {
 
 		Collections.sort(card_to_be_played);
 		String pattern = checkPattern(card_to_be_played);
-		if (lastValidPlayer.equals("") && lastPattern.equals("") && lastRank == 0 && lastWeight == 0
-				&& !pattern.equals("Invalid") && lastSuit == 0) {
-			if (straightSmall(pattern, card_to_be_played)) {
+		if (pattern.equals("Invalid"))throw new PatternNotRecognizeException(pattern);	
+		else {
+		boolean small = straightSmall(pattern, card_to_be_played);
+		int rank =0;
+		int weight = 0;
+		int suit = 0;
+		if (small) {
+			 rank = calRank(card_to_be_played, true);
+			 weight = calWeight(pattern);
+			 suit = calSuit(card_to_be_played, true);
+		}
+		else {
+			 rank = calRank(card_to_be_played, false);
+			 weight = calWeight(pattern);
+			 suit = calSuit(card_to_be_played, false);
+			}
+
+
+		if (FirstTurnOfGame(pattern)) {
+
 				setLastPattern(pattern);
-				int rank = calRank(card_to_be_played, true);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played, true);
 				setLastRank(rank);
-				setLastWeight(weight);
-				setLastCards(card_to_be_played, true);
+				setLastWeight(weight);				
 				setLastValidPlayer(name);
 				setLastSuit(suit);
+				if (small)setLastCards(card_to_be_played, true);
+				else setLastCards(card_to_be_played,false);
 				return true;
-			} else {
+			}
+
+
+		else if (SuccessorPlay(name,pattern,rank,weight,suit)) {
+
+
+					setLastPattern(pattern);
+					setLastRank(rank);
+					setLastWeight(weight);
+					setLastValidPlayer(name);
+					setLastSuit(suit);
+					if (small)setLastCards(card_to_be_played, true);
+					else setLastCards(card_to_be_played,false);
+					return true;
+
+		} else if (PlayYourOwnTurn(name,pattern)) {
+
 				setLastPattern(pattern);
-				int rank = calRank(card_to_be_played, false);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played,false);
 				setLastRank(rank);
 				setLastWeight(weight);
-				setLastCards(card_to_be_played, false);
-				setLastValidPlayer(name);
 				setLastSuit(suit);
+				if (small)setLastCards(card_to_be_played, true);
+				else setLastCards(card_to_be_played,false);
 				return true;
-			}
-		} else if (!this.lastValidPlayer.equals("") && !pattern.equals(this.getLastPattern())) {
-			throw new InvalidPatternException(pattern);
-		} else if (!this.lastValidPlayer.equals(name) && !this.lastValidPlayer.equals("")
-				&& pattern.equals(this.lastPattern) && !pattern.equals("Invalid")) {
-			if (straightSmall(pattern, card_to_be_played)) {
-				int rank = calRank(card_to_be_played, true);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played, true);
-				if ((rank > lastRank && weight >lastWeight)||(rank == lastRank && weight == lastWeight && suit > lastSuit)) {
-					setLastRank(rank);
-					setLastWeight(weight);
-					setLastCards(card_to_be_played, true);
-					setLastValidPlayer(name);
-					setLastSuit(suit);
-					return true;
-				}
 
-				else
-					throw new InvalidRankException(rank);
-			} else {
-				int rank = calRank(card_to_be_played, false);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played, false);
-				if ((rank > lastRank && weight > lastWeight)||(rank == lastRank && weight == lastWeight && suit > lastSuit)) {
-					setLastRank(rank);
-					setLastWeight(weight);
-					setLastCards(card_to_be_played, false);
-					setLastValidPlayer(name);
-					setLastSuit(suit);
-					return true;
-				}
-
-				else
-					throw new InvalidRankException(rank);
-			}
-		} else if (this.lastValidPlayer.equals(name) && !pattern.equals("") && !pattern.equals("Invalid")) {
-			if (straightSmall(pattern, card_to_be_played)) {
-				this.setLastPattern(pattern);
-				int rank = calRank(card_to_be_played, true);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played, true);
-				setLastRank(rank);
-				setLastWeight(weight);
-				setLastCards(card_to_be_played, true);
-				setLastSuit(suit);
-				return true;
-			} else {
-				this.setLastPattern(pattern);
-				int rank = calRank(card_to_be_played, false);
-				int weight = calWeight(pattern);
-				int suit = calSuit(card_to_be_played, false);
-				setLastRank(rank);
-				setLastWeight(weight);
-				setLastCards(card_to_be_played, false);
-				setLastSuit(suit);
-				return true;
-			}
 		} else
-			throw new PatternNotRecognizeException(pattern);
-
+			throw new InvalidPatternException(pattern);
+		}
 	}
 
 	/*

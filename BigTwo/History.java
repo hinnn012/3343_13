@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 public class History {
 
-	ArrayList<String> history = new ArrayList<String>();
+	ArrayList<String> history;
 
 	public History(ArrayList<String> history) {
 		super();
 		this.history = history;
 	}
-
+/*
+	public History() {
+		this.history = new ArrayList<String>();
+	}
+*/
 	public ArrayList<String> getHistory() {
 		return history;
 	}

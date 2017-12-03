@@ -22,7 +22,7 @@ public class Main {
 		boolean true_input = false;
 		int player_index = 0;
 		ArrayList<Player> player = new ArrayList<Player>();
-		History history = null;
+		History history = new History(new ArrayList<String>());
 		//ArrayList<String> history = new ArrayList<String>();
 		String tmp_history;
 		List<String> actions = Arrays.asList(new String[] {"history", "play", "pass"});
@@ -71,7 +71,7 @@ public class Main {
 				//System.out.println("History: ");
 				
 				//printHistory()
-				history.printHistory();
+				//history.printHistory();
 				/*
 				for(String s : history) {
 					
@@ -91,7 +91,7 @@ public class Main {
 						System.out.print("Input Cannot Be Null");
 						throw new InputCannotBeNullException();
 					}
-					if(actions.contains(input)){
+					if(!actions.contains(input)){
 						System.out.println("Input does not match an action");
 						throw new InputNotActionException(input);
 					}

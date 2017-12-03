@@ -42,7 +42,7 @@ public class History {
 		return history.isEmpty();
 	}
 	
-	public void add(String aHistory){
-		this.add(aHistory);
+	public void addHistory(String aHistory){
+		history.add(aHistory);
 	}
 }

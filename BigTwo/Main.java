@@ -126,7 +126,7 @@ public class Main {
 							
 							System.out.println(rulecontroller.getLastPlayMsg());
 							tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
-							history.add(tmp_history);//temporary field
+							history.addHistory(tmp_history);//temporary field
 							true_input = true;
 						}
 						
@@ -139,7 +139,7 @@ public class Main {
 						
 						if(this_turn.Pass()) {
 							tmp_history = "Player " + (player_index + 1) + "passed."; 
-							history.add(tmp_history);
+							history.addHistory(tmp_history);
 							true_input = true;
 						}
 						

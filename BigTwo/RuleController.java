@@ -52,7 +52,7 @@ public class RuleController {
 
 	public String getLastPlayMsg() {
 
-		return lastValidPlayer + " " + lastCards + " a " + lastPattern + ".";
+		return lastValidPlayer +  " played " + lastCards + " a " + lastPattern + ".";
 
 	}
 

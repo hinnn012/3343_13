@@ -83,71 +83,80 @@ public class Main {
 				
 				while(!true_input) {
 					
-					System.out.print("Please enter your action (history/play/pass): ");
 					
-					String input = c.next();
-					c.nextLine();
-					if(input == null || input.isEmpty()){
-						System.out.print("Input Cannot Be Null");
-						throw new InputCannotBeNullException();
-					}
-					if(!actions.contains(input)){
-						System.out.println("Input does not match an action");
-						throw new InputNotActionException(input);
-					}
-					/*
-					if(!input.equals("history") && !input.equals("play") && !input.equals("pass")){
-						System.out.println("Input does not match an action");
-						throw new InputNotActionException(input);
-					}
-					*/
-					else if(input.equals("history")){
-						System.out.flush(); 
-						history.printHistory();
-					}
-					
-					else if(input.equals("play")) {
+					try {
+						System.out.print("Please enter your action (history/play/pass): ");
 						
+						String input = c.next();
+						c.nextLine();
+						if(input == null || input.isEmpty()){
+							System.out.print("Input Cannot Be Null");
+							throw new InputCannotBeNullException();
+						}
+						if(!actions.contains(input)){
+							System.out.println("Input does not match an action");
+							throw new InputNotActionException(input);
+						}
+						/*
+						if(!input.equals("history") && !input.equals("play") && !input.equals("pass")){
+							System.out.println("Input does not match an action");
+							throw new InputNotActionException(input);
+						}
+						*/
+						else if(input.equals("history")){
+							System.out.flush(); 
+							history.printHistory();
+						}
 						
-						System.out.print("Please enter index of card : ");
-						String card_to_play = c.nextLine();
-						String[] card_index =  card_to_play.split(" ");
-						int [] card_inedx_int = new int[card_index.length];
-						
+						else if(input.equals("play")) {
+							
+							
+							System.out.print("Please enter index of card : ");
+							String card_to_play = c.nextLine();
+							String[] card_index =  card_to_play.split(" ");
+							int [] card_inedx_int = new int[card_index.length];
+							
 
-						for(int i = 0; i < card_index.length; i++) {
+							for(int i = 0; i < card_index.length; i++) {
+								
+								card_inedx_int[i] = Integer.parseInt(card_index[i]) - 1 ;
+								
+							}
 							
-							card_inedx_int[i] = Integer.parseInt(card_index[i]) - 1 ;
+							if(this_turn.Play(card_inedx_int)) {
+								
+								
+								System.out.println(rulecontroller.getLastPlayMsg());
+								tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
+								history.addHistory(tmp_history);//temporary field
+								true_input = true;
+							}
+							
+							
 							
 						}
 						
-						if(this_turn.Play(card_inedx_int)) {
+						else if(input.equals("pass")) {
 							
 							
-							System.out.println(rulecontroller.getLastPlayMsg());
-							tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
-							history.addHistory(tmp_history);//temporary field
-							true_input = true;
+							if(this_turn.Pass()) {
+								tmp_history = "Player " + (player_index + 1) + "passed."; 
+								history.addHistory(tmp_history);
+								true_input = true;
+							}
+							
 						}
 						
-						
-						
-					}
-					
-					else if(input.equals("pass")) {
-						
-						
-						if(this_turn.Pass()) {
-							tmp_history = "Player " + (player_index + 1) + "passed."; 
-							history.addHistory(tmp_history);
-							true_input = true;
+						else {
+							
+							continue;
+							
 						}
+					} catch (InputCannotBeNullException e) {
+						// TODO Auto-generated catch block
 						
-					}
-					
-					else {
-						
-						continue;
+					} catch (InputNotActionException e) {
+						// TODO Auto-generated catch block
 						
 					}
 					

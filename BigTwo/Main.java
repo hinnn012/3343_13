@@ -49,13 +49,7 @@ public class Main {
 			
 			for(int i = 0; i < 13; i++) {
 			Card card_to_be_assigned = poker.pop();
-			try {
-				p.Draw(card_to_be_assigned);
-			} catch (InputMoreThanHandsException e) {
-				System.out.println("Player should not play more than their hands : " + e.getSize());
-				e.printStackTrace();
-				}
-			}
+			p.Draw(card_to_be_assigned);
 		}
 		
 		System.out.println("Game start.");
@@ -164,11 +158,11 @@ public class Main {
 				}
 				
 				
-				for(Player p : player) {
+				for(Player p1 : player) {
 					
-					if(p.checkWin()) {
+					if(p1.checkWin()) {
 						
-						System.out.printf("Player %s wins!", p.getName());
+						System.out.printf("Player %s wins!", p1.getName());
 						
 					}
 					
@@ -196,4 +190,6 @@ public class Main {
 		
 	}
   
+	}
+	
 }

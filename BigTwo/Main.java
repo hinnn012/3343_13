@@ -127,7 +127,8 @@ public class Main {
 								
 								
 								System.out.println(rulecontroller.getLastPlayMsg());
-								tmp_history = "Player " + (player_index + 1) + "played" + rulecontroller.getLastPlayMsg() + "."; 
+								tmp_history = rulecontroller.getLastPlayMsg(); 
+								System.out.println(tmp_history);
 								history.addHistory(tmp_history);//temporary field
 								true_input = true;
 							}

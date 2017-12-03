@@ -37,8 +37,7 @@ public class Main {
 		
 		
 		//player.newPlayer() - not duplicated..
-		for(int i = 0 ; i < 3; i++) {
-			
+		for(int i = 0 ; i < 4; i++) {
 			
 			Player p_i = new Player(Integer.toString(i+1));
 			player.add(p_i);
@@ -126,7 +125,6 @@ public class Main {
 							if(this_turn.Play(card_inedx_int)) {
 								
 								
-								System.out.println(rulecontroller.getLastPlayMsg());
 								tmp_history = rulecontroller.getLastPlayMsg(); 
 								System.out.println(tmp_history);
 								history.addHistory(tmp_history);//temporary field

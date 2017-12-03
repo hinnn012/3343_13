@@ -39,11 +39,8 @@ public class Player {
 	
 	//Add cards to players
 	
-	public void Draw(Card card) throws InputMoreThanHandsException {
-		if(cardList.size() > 13){
-			throw new InputMoreThanHandsException(cardList.size());
-		}
-		else
+	public void Draw(Card card) {
+		
 			cardList.add(card);
 	}
 	

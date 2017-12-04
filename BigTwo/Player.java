@@ -31,7 +31,7 @@ public class Player {
 	
 	public Player(String aName) {
 		
-		aName = name;
+		name = aName;
 		cardList = new ArrayList<>();
 		
 	}

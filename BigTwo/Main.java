@@ -106,6 +106,10 @@ public class Main {
 							
 							System.out.print("Please enter index of card : ");
 							String card_to_play = c.nextLine();
+							if(card_to_play.equals("")){
+								System.out.println("Input Cannot Be Null");
+								throw new InputCannotBeNullException();
+							}
 							String[] card_index =  card_to_play.split(" ");
 							int [] card_inedx_int = new int[card_index.length];
 							

@@ -61,6 +61,7 @@ public class RuleController {
 			String s = ascenCard(card);
 			this.lastCards = s;
 		} else
+			this.lastCards = "";
 			for (Card c : card) {
 
 				this.lastCards += c.getSuit() + c.getFace() + " ";

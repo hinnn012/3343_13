@@ -50,8 +50,8 @@ public class Main {
 			for(int i = 0; i < 13; i++) {
 			Card card_to_be_assigned = poker.pop();
 			p.Draw(card_to_be_assigned);
+			}
 		}
-		
 		System.out.println("Game start.");
 		Scanner c = new Scanner(System.in);
 		try {
@@ -190,6 +190,6 @@ public class Main {
 		
 	}
   
-	}
-	
 }
+	
+

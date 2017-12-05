@@ -155,6 +155,9 @@ public class Main {
 					} catch (InputNotActionException e) {
 						// TODO Auto-generated catch block
 						
+					} catch (IndexOutOfBoundsException e) {
+						// TODO Auto-generated catch block
+						System.out.println("Invalid index. Please try again.");
 					}
 					
 					

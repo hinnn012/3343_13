@@ -9,6 +9,7 @@ import BigTwo.Card;
 import BigTwo.Player;
 import BigTwo.Poker;
 import Exception.InputCannotBeNullException;
+import Exception.InputMismatchException;
 import Exception.InputMoreThanHandsException;
 import Exception.InputNotActionException;
 public class Main {
@@ -103,15 +104,27 @@ public class Main {
 						
 						else if(input.equals("play")) {
 							
+							boolean index_match = false;
 							
 							System.out.print("Please enter index of card : ");
 							String card_to_play = c.nextLine();
-							if(card_to_play.equals("")){
+							String[] card_index =  card_to_play.split(" ");
+							int [] card_inedx_int = new int[card_index.length];
+							if(card_to_play==null || card_to_play.isEmpty() || card_to_play.trim().isEmpty()){
 								System.out.println("Input Cannot Be Null");
 								throw new InputCannotBeNullException();
 							}
-							String[] card_index =  card_to_play.split(" ");
-							int [] card_inedx_int = new int[card_index.length];
+							else{
+								for(int i = 0; i < card_index.length; i++) {
+									if(card_to_play.equals(card_inedx_int[i]))
+										index_match = true;
+								}
+								if(!index_match){
+									System.out.println("Input Should Match the Index");
+									throw new InputMismatchException();
+								}
+							}
+							
 							
 
 							for(int i = 0; i < card_index.length; i++) {

@@ -6,6 +6,7 @@ import BigTwo.Card;
 import BigTwo.RuleController;
 import Exception.CannotPassYourOwnLoopException;
 import Exception.InputCannotBeNullException;
+import Exception.InputMismatchException;
 import Exception.InputMoreThanHandsException;
 import Exception.InputNotValidException;
 import Exception.InvalidPatternException;
@@ -83,14 +84,15 @@ public class Player {
 		
 	}
 	
-	public boolean Play(int x[]) {
+	public boolean Play(int x[]) throws InputMismatchException {
 		
 		//int num_of_card = x.length();
 		ArrayList<Card> Card_to_be_played = new ArrayList<Card>();
 		
 		for(int i = 0; i < x.length; i++) {
 			
-			Card_to_be_played.add(cardList.get(x[i]));
+			if(x[i] > cardList.size() || x[i] < cardList.size()) throw new InputMismatchException();
+			else Card_to_be_played.add(cardList.get(x[i]));
 			
 		}
 		

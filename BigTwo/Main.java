@@ -114,7 +114,10 @@ public class Main {
 								System.out.println("Input Cannot Be Null");
 								throw new InputCannotBeNullException();
 							}
+							
+							/*
 							else{
+								
 								for(int i = 0; i < card_index.length; i++) {
 									if(card_to_play.equals(card_inedx_int[i]))
 										index_match = true;
@@ -124,7 +127,7 @@ public class Main {
 									throw new InputMismatchException();
 								}
 							}
-							
+							*/
 							
 
 							for(int i = 0; i < card_index.length; i++) {
@@ -168,7 +171,7 @@ public class Main {
 					} catch (InputNotActionException e) {
 						// TODO Auto-generated catch block
 						
-					} catch (IndexOutOfBoundsException e) {
+					} catch (InputMismatchException e) {
 						// TODO Auto-generated catch block
 						System.out.println("Invalid index. Please try again.");
 					}

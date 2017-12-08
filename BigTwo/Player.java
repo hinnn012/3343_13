@@ -96,13 +96,13 @@ public class Player {
 			
 		}
 		
-		
+		/*
 		for(int c: x) {
 			
 			Card_to_be_played.add(cardList.get(c));
 			
 		}
-		
+		*/
 		
 		RuleController ruleController = RuleController.getInstance();
 		

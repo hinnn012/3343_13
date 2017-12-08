@@ -91,7 +91,7 @@ public class Player {
 		
 		for(int i = 0; i < x.length; i++) {
 			
-			if(x[i] > cardList.size() || x[i] < cardList.size()) throw new InputMismatchException();
+			if(x[i] > cardList.size() || x[i] < 0) throw new InputMismatchException();
 			else Card_to_be_played.add(cardList.get(x[i]));
 			
 		}

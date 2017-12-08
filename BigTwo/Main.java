@@ -81,14 +81,14 @@ public class Main {
 					try {
 						System.out.print("Please enter your action (history/play/pass): ");
 						
-						String input = c.next();
-						c.nextLine();
+						String input = c.nextLine();
+						//c.nextLine();
 						if(input == null || input.isEmpty()){
-							System.out.print("Input Cannot Be Null");
+							
 							throw new InputCannotBeNullException();
 						}
 						if(!actions.contains(input)){
-							System.out.println("Input does not match an action");
+							
 							throw new InputNotActionException(input);
 						}
 						/*
@@ -111,7 +111,7 @@ public class Main {
 							String[] card_index =  card_to_play.split(" ");
 							int [] card_inedx_int = new int[card_index.length];
 							if(card_to_play==null || card_to_play.isEmpty() || card_to_play.trim().isEmpty()){
-								System.out.println("Input Cannot Be Null");
+								
 								throw new InputCannotBeNullException();
 							}
 							
@@ -167,9 +167,10 @@ public class Main {
 						}
 					} catch (InputCannotBeNullException e) {
 						// TODO Auto-generated catch block
-						
+						System.out.println("Input Cannot Be Null. Please try again.");
 					} catch (InputNotActionException e) {
 						// TODO Auto-generated catch block
+						System.out.println("Input does not match an action. Please try again.");
 						
 					} catch (InputMismatchException e) {
 						// TODO Auto-generated catch block

@@ -48,7 +48,7 @@ public class Main {
 		// player.initialize(poker)?
 		for(Player p : player) {
 			
-			for(int i = 0; i < 13; i++) {
+			for(int i = 0; i < 1; i++) {
 			Card card_to_be_assigned = poker.pop();
 			p.Draw(card_to_be_assigned);
 			}
@@ -56,6 +56,7 @@ public class Main {
 		System.out.println("Game start.");
 		Scanner c = new Scanner(System.in);
 		try {
+			
 			while(end == false){
 				//input = null;
 				true_input = false;
@@ -180,6 +181,11 @@ public class Main {
 					
 					
 				}
+				player_index++;
+				
+				if(player_index > 3) {
+					player_index = 0;
+				}
 				
 				
 				for(Player p1 : player) {
@@ -188,9 +194,9 @@ public class Main {
 						
 						System.out.printf("Player %s wins!", p1.getName());
 						
-						System.out.println("Play Again? (Y/N)" );
+						System.out.print("Play Again? (Y/N): " );
 						String input_replay;
-						input_replay = c.next();
+						input_replay = c.nextLine();
 												
 						if(input_replay.equals("Y")) {
 							 end = false; 
@@ -234,11 +240,6 @@ public class Main {
 					
 				}
 				
-				player_index++;
-				
-				if(player_index > 3) {
-					player_index = 0;
-				}
 				
 				c.close();
 				//break; // break infinite loop , will be removed in final

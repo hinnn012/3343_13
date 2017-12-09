@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class History {
 
-	ArrayList<String> history;
+	private ArrayList<String> history;
 
 	public History(ArrayList<String> history) {
 		super();
@@ -22,6 +22,11 @@ public class History {
 	public void setHistory(ArrayList<String> history) {
 		this.history = history;
 	}
+	
+	public void clearHistory() {
+		history.clear();
+	}
+	
 	
 	public void printHistory(){
 		if(!history.isEmpty()){

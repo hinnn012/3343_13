@@ -48,7 +48,7 @@ public class Main {
 		// player.initialize(poker)?
 		for(Player p : player) {
 			
-			for(int i = 0; i < 1; i++) {
+			for(int i = 0; i < 13; i++) {
 			Card card_to_be_assigned = poker.pop();
 			p.Draw(card_to_be_assigned);
 			}
@@ -194,7 +194,7 @@ public class Main {
 						
 						System.out.printf("Player %s wins!", p1.getName());
 						
-						System.out.print("Play Again? (Y/N): " );
+						System.out.println("Play Again? (Y/N)" );
 						String input_replay;
 						input_replay = c.nextLine();
 												
@@ -228,7 +228,7 @@ public class Main {
 									}
 								}
 								System.out.println("Game start.");
-								
+								continue;
 						}
 						
 						else if(input_replay.equals("N")) {

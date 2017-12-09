@@ -201,6 +201,17 @@ public class Main {
 				
 				//break; // break infinite loop , will be removed in final
 				
+				//code for wait sometimes before clear console (allow user to see play msg)
+				
+				try        
+				{
+				    Thread.sleep(500);
+				} 
+				catch(InterruptedException ex) 
+				{
+				    Thread.currentThread().interrupt();
+				}
+				
 				//clear console
 				
 				 final String os = System.getProperty("os.name");

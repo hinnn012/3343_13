@@ -202,8 +202,15 @@ public class Main {
 				//break; // break infinite loop , will be removed in final
 				
 				//clear console
-				System.out.print("\033[H\033[2J"); 
-			    System.out.flush(); 
+				/*System.out.print("\033[H\033[2J"); 
+			    System.out.flush(); */
+				
+				//for clear console
+				for(int i = 0; i< 50 ;i++) {
+					
+					System.out.println("");
+					
+				}
 			   
 			}
 			 c.close();

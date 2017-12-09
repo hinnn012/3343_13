@@ -41,6 +41,12 @@ public class Poker {
 			
 	}
 	
+	public void reset() {
+		
+		Poker.clear();
+		
+	}
+	
 	//Function for picking the first card 
 	public Card pop() {
 		

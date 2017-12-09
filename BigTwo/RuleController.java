@@ -50,6 +50,22 @@ public class RuleController {
 		this.lastRank = rank;
 	}
 
+	public void reset() {
+		
+		lastValidPlayer = "";
+
+		lastWeight = 0;
+
+		lastRank = 0;
+		
+		lastSuit = 0;
+
+		lastPattern = "";
+
+		lastCards = "";
+		
+	}
+	
 	public String getLastPlayMsg() {
 
 		return "Player " + lastValidPlayer +  " played " + lastCards + " a " + lastPattern + ".";

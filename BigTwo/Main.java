@@ -56,6 +56,7 @@ public class Main {
 		System.out.println("Game start.");
 		Scanner c = new Scanner(System.in);
 		try {
+			
 			while(end == false){
 				//input = null;
 				true_input = false;
@@ -180,6 +181,11 @@ public class Main {
 					
 					
 				}
+				player_index++;
+				
+				if(player_index > 3) {
+					player_index = 0;
+				}
 				
 				
 				for(Player p1 : player) {
@@ -188,17 +194,54 @@ public class Main {
 						
 						System.out.printf("Player %s wins!", p1.getName());
 						
+						System.out.println("Play Again? (Y/N)" );
+						String input_replay;
+						input_replay = c.nextLine();
+												
+						if(input_replay.equals("Y")) {
+							 end = false; 
+							 history.clearHistory();
+							 player.clear();
+							 rulecontroller.reset();
+							 player_index = 0;
+							 
+							 System.out.println("Initializing...");	
+							 System.out.println("Distributing Card...");
+							 
+							 poker.initialize();  //Initialize the poker
+							 poker.shuffle();  	//Shuffle the card 
+							 
+							//player.newPlayer() - not duplicated..
+								for(int i = 0 ; i < 4; i++) {
+									
+									Player p_i = new Player(Integer.toString(i+1));
+									player.add(p_i);
+									
+								}
+								
+								// player.initialize(poker)?
+								for(Player p : player) {
+									
+									for(int i = 0; i < 13; i++) {
+									Card card_to_be_assigned = poker.pop();
+									p.Draw(card_to_be_assigned);
+									}
+								}
+								System.out.println("Game start.");
+								continue;
+						}
+						
+						else if(input_replay.equals("N")) {
+							
+							end = true;
+							
+						}
 					}
 					
 				}
 				
-				player_index++;
 				
-				if(player_index > 3) {
-					player_index = 0;
-				}
-				
-				
+				c.close();
 				//break; // break infinite loop , will be removed in final
 				
 				//code for wait sometimes before clear console (allow user to see play msg)
@@ -220,9 +263,12 @@ public class Main {
 			        else
 			            Runtime.getRuntime().exec("clear");
 			
-				
+			        
 			   
 			}
+			
+			System.out.println("Game Ends!");
+			
 			
 		        
 		} catch (Exception e) {

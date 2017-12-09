@@ -1543,7 +1543,7 @@ public class testRules {
 
 		try {
 			result = ruleCtrl.valid(cards, "Player3");
-		} catch (InvalidRankException e) {
+		} catch (InvalidPatternException e) {
 			result = false;
 		}
 		assertEquals(false, result);
@@ -1660,7 +1660,7 @@ public class testRules {
 
 		try {
 			result = ruleCtrl.valid(cards, "Player1");
-		} catch (InvalidRankException e) {
+		} catch (InvalidPatternException e) {
 			result = false;
 		}
 		assertEquals(false, result);

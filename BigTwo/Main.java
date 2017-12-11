@@ -62,6 +62,8 @@
  				System.out.println("Player " + ( player_index + 1 ) + " turn");
  				System.out.println("=============================================================================================");
  				Player this_turn = player.get(player_index);
+     if(!rulecontroller.getLastValidPlayer().equals(""))  System.out.println("Last Play: "  + rulecontroller.getLastPlayMsg());
+     
  				//System.out.println("History: ");
  				
  				//printHistory()

@@ -68,7 +68,7 @@ public class RuleController {
 	
 	public String getLastPlayMsg() {
 
-		return "Player " + lastValidPlayer +  " played " + lastCards + " a " + lastPattern + ".";
+		return "Player " + lastValidPlayer +  " played " + lastCards + "a " + lastPattern + ".";
 
 	}
 

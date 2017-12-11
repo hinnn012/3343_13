@@ -173,6 +173,9 @@
  					} catch (InputMismatchException e) {
  						// TODO Auto-generated catch block
  						System.out.println("Invalid index. Please try again.");
+ 					} catch(NumberFormatException e) {
+ 						// TODO Auto-generated catch block
+ 						System.out.println("Invalid index. Please try again.");
  					}
  					
  					

@@ -103,9 +103,7 @@
  						}
  						
  						else if(input.equals("play")) {
- 							
- 							boolean index_match = false;
- 							
+ 						
  							System.out.print("Please enter index of card : ");
  							String card_to_play = c.nextLine();
  							String[] card_index =  card_to_play.split(" ");
